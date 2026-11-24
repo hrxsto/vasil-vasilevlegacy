@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<!--
+  PROTOTIPO — landing page de Vasil Vasilev, Consultor Independiente de
+  Immunotec (España) y socio de Hristo Vasilev. Subdominio previsto:
+  vasil.vasilevlegacy.net.
+  Derivada de la landing de Hristo (repo hristo-vasilevlegacy) el 2026-11-24.
+  Cambios de la copia: nombre en todos los textos ES/EN/BG, WhatsApp propio
+  (+34 670 333 241, mensajes preescritos por idioma), foto de perfil
+  (perfil-vasil.jpg), enlace de compra a la tienda del handle
+  saludtotaleuropa, dominio propio en og:url, canonical y og:image.
+  Pendiente: sección "Acerca de" con la bio real de Vasil (ahora mantiene la
+  de Hristo como marcador), favicon personalizado y configurar el subdominio
+  en Squarespace + GitHub Pages al publicar.
+  Regla del repo: sin cifras de ingresos, sin promesas de salud ni de retorno.
+-->
+
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vasil Vasilev · Consultor Independiente de Immunotec</title>
+<meta name="description" content="Tu primer paso con Immunocal es una conversación con Vasil Vasilev, Consultor Independiente de Immunotec. Resuelve tus dudas por WhatsApp y pide en el sitio oficial.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Vasil Vasilev · Consultor Independiente de Immunotec">
+<meta property="og:description" content="Immunocal explicado por una persona real. Resuelve tus dudas por WhatsApp y pide en el sitio oficial de Immunotec España.">
+<!-- Subdominio definitivo (2026-11-24). WhatsApp y otras redes solo leen
+     og:image si es una URL absoluta. -->
+<meta property="og:url" content="https://vasil.vasilevlegacy.net/">
+<meta property="og:image" content="https://vasil.vasilevlegacy.net/perfil-vasil.jpg">
+<link rel="canonical" href="https://vasil.vasilevlegacy.net/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background:#ffffff;
+    --foreground:#263746;
+    --card:#ffffff;
+    --primary:#087ac1;
+    --primary-hover:#0668a3;
+    --primary-foreground:#ffffff;
+    --secondary:#f4f6f8;
+    --muted:#f4f6f8;
+    --muted-foreground:#4e5d6c;
+    --accent:#e7f3fa;
+    --accent-foreground:#087ac1;
+    --border:#d5d8dc;
+    --navy:#0d2a42;
+    --radius:0.625rem;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    position:relative;
+    background:var(--background);
+    color:var(--foreground);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:1rem;line-height:1.5;
+    min-height:100%;
+    overflow-x:clip;
+    padding-bottom:5rem;
+  }
+  h1,h2,h3{font-family:"Montserrat","Inter",sans-serif;color:var(--navy)}
+  img{display:block}
+  a{color:var(--primary)}
+
+  .container{max-width:72rem;margin:0 auto;padding-left:1.25rem;padding-right:1.25rem}
+
+  header{position:relative;z-index:10}
+  header .container{
+    display:flex;align-items:center;justify-content:flex-end;gap:.6rem;flex-wrap:wrap;
+    padding-top:.75rem;
+  }
+  .wordmark{font-family:"Montserrat",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.14em;color:var(--primary)}
+  .header-note{font-size:.8rem;color:var(--muted-foreground)}
+
+  /* barra superior y banda de degradado (estética de la intro) */
+  .top-bar{position:relative;z-index:1;height:4px;background:var(--primary)}
+  .page-band{
+    position:absolute;top:0;left:0;right:0;height:44rem;z-index:0;
+    pointer-events:none;
+    background:linear-gradient(180deg,#e4f2fb 0%,#f3f9fd 55%,#ffffff 100%);
+  }
+
+  /* selector de idioma sin JavaScript */
+  .lang-radio{
+    position:absolute;width:1px;height:1px;margin:-1px;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;
+  }
+  .lang-switch{display:flex;align-items:center;gap:.35rem}
+  .lang-btn{
+    display:inline-flex;align-items:center;gap:.45rem;
+    font-size:.78rem;font-weight:700;letter-spacing:.08em;
+    padding:.3rem .8rem;border-radius:999px;cursor:pointer;
+    color:var(--muted-foreground);background:var(--muted);
+    border:1px solid var(--border);user-select:none;
+    transition:background .15s ease,color .15s ease,border-color .15s ease;
+  }
+  .flag{
+    width:1.15rem;height:.76rem;border-radius:2px;flex-shrink:0;
+    box-shadow:0 1px 3px rgba(13,42,66,.25);
+    outline:1px solid rgba(13,42,66,.18);
+  }
+  #lang-es:checked ~ header label[for="lang-es"],
+  #lang-en:checked ~ header label[for="lang-en"],
+  #lang-bg:checked ~ header label[for="lang-bg"]{
+    background:var(--primary);border-color:var(--primary);color:#fff;
+  }
+  #lang-es:focus-visible ~ header label[for="lang-es"],
+  #lang-en:focus-visible ~ header label[for="lang-en"],
+  #lang-bg:focus-visible ~ header label[for="lang-bg"]{
+    outline:2px solid var(--primary);outline-offset:2px;
+  }
+  /* muestra solo el idioma activo (el activo conserva su display natural) */
+  #lang-es:not(:checked) ~ .l-es,
+  #lang-en:not(:checked) ~ .l-en,
+  #lang-bg:not(:checked) ~ .l-bg,
+  #lang-es:not(:checked) ~ * .l-es,
+  #lang-en:not(:checked) ~ * .l-en,
+  #lang-bg:not(:checked) ~ * .l-bg{display:none}
+
+  /* decoración búlgara: solo visible con el búlgaro activo */
+  .bg-only{display:none}
+  #lang-bg:checked ~ .bg-only,
+  #lang-bg:checked ~ * .bg-only{display:block}
+  .tricolor{
+    position:fixed;top:0;left:0;right:0;height:4px;z-index:55;
+    background:linear-gradient(180deg,#ffffff 0 33.3%,#00966e 33.3% 66.6%,#d62612 66.6% 100%);
+  }
+  .bg-flag{
+    --tilt:-6deg;
+    position:absolute;z-index:0;pointer-events:none;
+    width:7rem;height:4.6rem;border-radius:.6rem;
+    background:linear-gradient(180deg,#ffffff 0 33.3%,#00966e 33.3% 66.6%,#d62612 66.6% 100%);
+    box-shadow:0 10px 24px rgba(13,42,66,.18);
+    opacity:.5;
+    transform:rotate(var(--tilt));
+    animation:flagfloat 9s ease-in-out infinite alternate;
+  }
+  @keyframes flagfloat{
+    from{transform:rotate(var(--tilt)) translateY(0)}
+    to{transform:rotate(var(--tilt)) translateY(-10px)}
+  }
+  .bg-flag-1{width:6rem;height:4rem;top:16%;left:3%;--tilt:-8deg;opacity:.5}
+  .bg-flag-2{width:8rem;height:5.3rem;top:54%;right:4%;--tilt:7deg;opacity:.4;animation-delay:-4s}
+  .bg-flag-3{width:5rem;height:3.3rem;top:10%;right:16%;--tilt:5deg;opacity:.32;animation-delay:-2s}
+  .bg-flag-4{width:6.5rem;height:4.3rem;bottom:12%;left:6%;--tilt:9deg;opacity:.3;animation-delay:-6s}
+
+  @media (prefers-reduced-motion: reduce){
+    .bg-flag,.orb{animation:none}
+    .ping-ring{animation:none}
+    .reveal{animation:none}
+  }
+
+  section{position:relative;padding-top:2.5rem;padding-bottom:2.5rem}
+
+  .kicker{
+    font-size:.8rem;font-weight:600;text-transform:uppercase;
+    letter-spacing:.16em;color:var(--primary);margin-bottom:.5rem;
+  }
+  h1{
+    font-size:clamp(2.1rem,6.2vw,3.9rem);
+    font-weight:700;line-height:1.04;color:var(--navy);
+  }
+  h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:.6rem}
+  h3{font-size:1.08rem;margin-bottom:.3rem}
+  p{color:var(--muted-foreground)}
+  section > p + p{margin-top:.6rem}
+
+  /* hero */
+  .hero{padding-top:1.25rem}
+  .orb{
+    position:absolute;border-radius:50%;filter:blur(64px);z-index:0;pointer-events:none;
+  }
+  .orb-1{width:24rem;height:24rem;background:rgba(20,147,214,.20);top:2.5rem;left:-6rem;animation:drift 18s ease-in-out infinite}
+  .orb-2{width:20rem;height:20rem;background:rgba(8,122,193,.15);top:18rem;right:-5rem;animation:drift 18s ease-in-out -6s infinite}
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(3%,-4%) scale(1.08)}
+  }
+  .hero .container{position:relative;z-index:1}
+  .hero-intro{
+    display:flex;flex-direction:row;align-items:center;
+    gap:1.25rem;margin-bottom:1.6rem;
+  }
+  .hero h1{text-align:left}
+  .hero .cta-row{justify-content:flex-start}
+  .hero .trust{width:auto;max-width:100%}
+
+  /* arcos concéntricos decorativos en la esquina superior derecha */
+  .hero-arcs{
+    position:absolute;top:-2.5rem;right:-1.5rem;width:20rem;z-index:0;
+    pointer-events:none;overflow:visible;
+  }
+  @media (max-width:40rem){.hero-arcs{display:none}}
+
+  .attend{display:flex;align-items:center;gap:.9rem;margin-bottom:1.1rem}
+  .avatar-wrap{
+    position:relative;display:inline-block;flex-shrink:0;border-radius:50%;
+  }
+  .avatar-wrap .ping-ring{inset:-2px;animation-duration:2.4s}
+  .avatar{
+    width:9.5rem;height:9.5rem;border-radius:50%;flex-shrink:0;
+    object-fit:cover;border:2px solid #fff;
+    box-shadow:0 4px 12px rgba(8,122,193,.20);
+  }
+  @media (max-width:30rem){
+    .avatar{width:8rem;height:8rem}
+  }
+  .attend-name{font-weight:700;color:var(--navy)}
+  .attend-role{font-size:.85rem;color:var(--muted-foreground)}
+  /* eyebrow de la intro, estilo Mauricio, solo dentro del hero */
+  .hero .attend-name{
+    font-size:.875rem;font-weight:600;text-transform:uppercase;
+    letter-spacing:.16em;color:var(--primary);
+  }
+  .hero .attend-role{font-size:.75rem;margin-top:.125rem;color:var(--muted-foreground)}
+  .hero-lede{margin:1.25rem 0 0;max-width:36rem;font-size:1.125rem;color:var(--muted-foreground)}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:3rem;padding:.5rem 1.75rem;border-radius:999px;
+    font-weight:600;font-size:1rem;text-decoration:none;
+    transition:background .15s ease,box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--primary);color:var(--primary-foreground)}
+  .btn-primary:hover{background:var(--primary-hover)}
+  .btn-secondary{background:#fff;color:var(--navy);border:1px solid var(--border)}
+  .btn-secondary:hover{background:var(--muted)}
+
+  .trust{margin-top:1.3rem;color:var(--muted-foreground);font-size:.92rem;padding-left:0;list-style:none}
+  .trust li{margin:.3rem 0;display:flex;gap:.55rem;align-items:flex-start}
+  .trust li::before{
+    content:"✓";flex-shrink:0;width:1.25rem;height:1.25rem;border-radius:50%;
+    background:var(--accent);color:var(--primary);font-weight:700;font-size:.75rem;
+    display:inline-flex;align-items:center;justify-content:center;margin-top:.1rem;
+  }
+
+  /* tarjetas y bloques */
+  .card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:1.5rem;padding:1.5rem;
+    box-shadow:0 1px 3px rgba(8,122,193,.05);
+  }
+  .stack{display:grid;gap:1rem}
+
+  .footnote{font-size:.8rem;color:var(--muted-foreground);margin-top:.7rem}
+
+  /* pasos */
+  .step{
+    display:flex;gap:1rem;align-items:flex-start;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:1.5rem;padding:1.25rem 1.5rem;
+    box-shadow:0 1px 3px rgba(8,122,193,.05);
+  }
+  .step-num{
+    width:2.25rem;height:2.25rem;border-radius:50%;flex-shrink:0;
+    background:var(--primary);color:#fff;
+    font-weight:700;font-size:.9rem;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 4px #fff;
+  }
+  .step h3{margin-bottom:.25rem}
+
+  /* producto */
+  .product-img{
+    width:100%;height:auto;border-radius:1rem;
+    margin:0 auto .6rem;display:block;
+    border:1px solid var(--border);
+  }
+  .product-img-link{display:block}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 1.1rem}
+  .chip{
+    font-size:.85rem;font-weight:600;color:var(--navy);
+    background:#fff;border-radius:999px;padding:.5rem 1rem;
+    box-shadow:0 8px 20px rgba(8,122,193,.20);
+    outline:1px solid rgba(8,122,193,.15);
+  }
+  ul.checks{padding-left:0;list-style:none;color:var(--muted-foreground);font-size:.95rem}
+  ul.checks li{display:flex;gap:.6rem;align-items:flex-start;margin:.45rem 0}
+  ul.checks li::before{
+    content:"✓";flex-shrink:0;width:1.25rem;height:1.25rem;border-radius:50%;
+    background:var(--accent);color:var(--primary);font-weight:700;font-size:.75rem;
+    display:inline-flex;align-items:center;justify-content:center;margin-top:.15rem;
+  }
+
+  /* ciencia del glutatión */
+  blockquote{border-left:3px solid var(--primary);margin:1.2rem 0 0;padding:.1rem 0 .1rem 1rem}
+  blockquote p{margin:0}
+  .science-grid{display:grid;gap:1.2rem;grid-template-columns:1fr}
+  @media (min-width:52rem){.science-grid{grid-template-columns:1fr 15rem}}
+  .stats-lead{margin:0 0 .8rem;font-weight:600;color:var(--navy)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.7rem;margin:0 0 .9rem}
+  .stat{background:var(--accent);border-radius:1rem;padding:.85rem .7rem;text-align:center}
+  .stat b{display:block;font-family:"Montserrat","Inter",sans-serif;font-size:1.35rem;font-weight:800;color:var(--primary);line-height:1.15}
+  .stat small{display:block;font-size:.74rem;color:var(--muted-foreground);margin-top:.15rem}
+  .gutman{margin:0}
+  .gutman img{width:100%;height:auto;border-radius:1rem;border:1px solid var(--border);display:block}
+  .gutman figcaption{font-size:.78rem;color:var(--muted-foreground);margin-top:.5rem;text-align:center}
+
+  .warn{
+    background:#fdf6ec;border:1px solid #ecd9b8;
+    border-radius:1.5rem;padding:1.1rem 1.3rem;margin-top:1.2rem;
+    font-size:.9rem;color:#6b5426;
+  }
+  .warn strong{color:#57451c}
+
+  /* dos caminos */
+  .paths{display:grid;gap:1rem}
+  @media(min-width:640px){.paths{grid-template-columns:1fr 1fr}}
+  .path h3{margin:.2rem 0 .5rem}
+  .path-tag{
+    font-size:.75rem;font-weight:600;text-transform:uppercase;
+    letter-spacing:.14em;color:var(--primary);
+  }
+  .path p{font-size:.92rem}
+  .path .btn{margin-top:.9rem}
+  .path{transition:transform .3s ease,box-shadow .3s ease}
+  .path:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(8,122,193,.10);
+  }
+  .path-note{
+    margin-top:1rem;font-size:.9rem;color:var(--muted-foreground);
+    background:var(--accent);border-radius:1.5rem;padding:1rem 1.3rem;
+  }
+
+  /* antes de decidir */
+  .decide{display:grid;gap:.9rem}
+  .decide-item{
+    display:flex;gap:1rem;align-items:flex-start;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:1.5rem;padding:1.15rem 1.4rem;
+    box-shadow:0 1px 3px rgba(8,122,193,.05);
+  }
+  .decide-num{
+    width:2.25rem;height:2.25rem;border-radius:50%;flex-shrink:0;
+    background:var(--primary);color:#fff;
+    font-weight:700;font-size:.8rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .decide-item p{font-size:.92rem;margin-top:.15rem}
+  .inline-link{color:var(--primary);font-weight:600}
+
+  /* FAQ */
+  .faq-list{
+    margin-top:1.5rem;
+    border:1px solid var(--border);border-radius:1.5rem;background:var(--card);
+    box-shadow:0 1px 3px rgba(8,122,193,.05);
+    overflow:hidden;
+  }
+  .faq-list details + details{border-top:1px solid var(--border)}
+  details{padding:1.1rem 1.5rem}
+  details summary{
+    font-weight:600;color:var(--navy);cursor:pointer;list-style:none;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    min-height:2rem;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{
+    content:"+";font-size:1.3rem;font-weight:400;color:var(--primary);
+    transition:transform .2s ease;flex-shrink:0;
+  }
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin-top:.6rem;font-size:.93rem}
+
+  /* pie */
+  footer{border-top:1px solid var(--border);margin-top:1.5rem}
+  footer .container{padding-top:1.5rem;padding-bottom:1rem}
+  footer p{font-size:.75rem;color:var(--muted-foreground);margin:.5rem 0}
+
+  /* botón flotante de WhatsApp */
+  .fab{
+    position:fixed;bottom:1.25rem;right:1.25rem;z-index:50;
+    display:flex;align-items:center;gap:.6rem;text-decoration:none;
+  }
+  .fab-circle{
+    position:relative;width:4rem;height:4rem;border-radius:50%;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px rgba(8,122,193,.30);
+    outline:2px solid rgba(8,122,193,.30);
+    transition:transform .2s ease;
+  }
+  .fab:hover .fab-circle{transform:scale(1.05)}
+  .fab-circle svg{width:2.4rem;height:2.4rem}
+  .ping-ring{
+    position:absolute;inset:0;border-radius:50%;
+    border:2px solid rgba(8,122,193,.40);
+    animation:ping-ring 1.8s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes ping-ring{
+    0%{transform:scale(.8);opacity:.8}
+    100%{transform:scale(2.2);opacity:0}
+  }
+  .fab-label{
+    background:#fff;border-radius:999px;padding:.5rem 1rem;
+    font-size:.85rem;font-weight:600;color:var(--navy);
+    box-shadow:0 8px 20px rgba(8,122,193,.20);
+    outline:1px solid rgba(8,122,193,.15);
+  }
+
+  /* animación de aparición al hacer scroll */
+  @supports (animation-timeline: view()){
+    .reveal{
+      animation:reveal-up linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 55%;
+    }
+    @keyframes reveal-up{
+      from{opacity:0;transform:translateY(36px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  }
+</style>
+</head>
+<body>
+
+<input class="lang-radio" type="radio" name="lang" id="lang-es" checked>
+<input class="lang-radio" type="radio" name="lang" id="lang-en">
+<input class="lang-radio" type="radio" name="lang" id="lang-bg">
+
+<div class="tricolor bg-only" aria-hidden="true"></div>
+<div class="top-bar" aria-hidden="true"></div>
+<div class="page-band" aria-hidden="true"></div>
+
+<header>
+  <div class="container">
+    <span class="header-note"><span class="l-es" lang="es">Página personal de un Consultor Independiente</span><span class="l-en" lang="en">Personal page of an Independent Consultant</span><span class="l-bg" lang="bg">Лична страница на независим консултант</span></span>
+    <nav class="lang-switch" aria-label="Idioma / Language / Език">
+      <label class="lang-btn" for="lang-es"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg><span>ES</span></label>
+      <label class="lang-btn" for="lang-en"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0L30 20M30 0L0 20" stroke="#C8102E" stroke-width="2"/><path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6.67"/><path d="M15 0V20M0 10H30" stroke="#C8102E" stroke-width="4"/></svg><span>EN</span></label>
+      <label class="lang-btn" for="lang-bg"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect y="6.67" width="30" height="6.66" fill="#00966E"/><rect y="13.33" width="30" height="6.67" fill="#D62612"/></svg><span>BG</span></label>
+    </nav>
+    <span class="wordmark">IMMUNOTEC</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="bg-flag bg-flag-1 bg-only" aria-hidden="true"></div>
+    <div class="bg-flag bg-flag-2 bg-only" aria-hidden="true"></div>
+    <div class="bg-flag bg-flag-3 bg-only" aria-hidden="true"></div>
+    <svg class="hero-arcs" viewBox="0 0 320 320" aria-hidden="true">
+      <defs>
+        <radialGradient id="arcs-fade" cx="1" cy="0" r="1">
+          <stop offset="0" stop-color="#1493d6" stop-opacity="0.35"/>
+          <stop offset="1" stop-color="#1493d6" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="arcs-stroke" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#087ac1" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="#1493d6" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="320" cy="0" r="320" fill="url(#arcs-fade)"/>
+      <circle cx="320" cy="0" r="70" fill="none" stroke="url(#arcs-stroke)" stroke-width="1.5"/>
+      <circle cx="320" cy="0" r="120" fill="none" stroke="url(#arcs-stroke)" stroke-width="1.5"/>
+      <circle cx="320" cy="0" r="170" fill="none" stroke="url(#arcs-stroke)" stroke-width="1.5"/>
+      <circle cx="320" cy="0" r="220" fill="none" stroke="url(#arcs-stroke)" stroke-width="1.5"/>
+      <circle cx="320" cy="0" r="270" fill="none" stroke="url(#arcs-stroke)" stroke-width="1.5"/>
+    </svg>
+    <div class="container">
+      <div class="hero-intro">
+        <span class="avatar-wrap">
+          <span class="ping-ring" aria-hidden="true"></span>
+          <img class="avatar" src="perfil-vasil.jpg" alt="Vasil Vasilev">
+        </span>
+        <div>
+          <div class="attend-name"><span class="l-es" lang="es">Te atiende Vasil Vasilev</span><span class="l-en" lang="en">Vasil Vasilev will help you</span><span class="l-bg" lang="bg">При теб е Васил Василев</span></div>
+          <div class="attend-role"><span class="l-es" lang="es">Consultor Independiente de Immunotec</span><span class="l-en" lang="en">Independent Immunotec Consultant</span><span class="l-bg" lang="bg">Независим консултант на Immunotec</span></div>
+        </div>
+      </div>
+
+      <h1><span class="l-es" lang="es">Tu primer paso con Immunotec es una conversación con Vasil Vasilev</span><span class="l-en" lang="en">Your first step with Immunotec is a conversation with Vasil Vasilev</span><span class="l-bg" lang="bg">Първата ти стъпка с Immunotec е разговор с Васил Василев</span></h1>
+      <p class="hero-lede"><span class="l-es" lang="es">
+        Si has llegado hasta aquí, es porque algo de Immunocal te ha llamado la atención.
+        En pocos minutos vas a entender qué es, cómo se toma y cómo pedirlo.
+        Te lo explica una persona real, sin presión y a tu ritmo.
+      </span><span class="l-en" lang="en">
+        If you have made it here, it is because something about Immunocal caught your
+        attention. In a few minutes you will understand what it is, how to take it and
+        how to order it. A real person explains it, no pressure, at your own pace.
+      </span><span class="l-bg" lang="bg">
+        Ако си стигнал дотук, нещо в Immunocal е привлякло вниманието ти.
+        За няколко минути ще разбереш какво е, как се приема и как да го поръчаш.
+        Това ще ти обясни реален човек — без натиск и в твоя ритъм.
+      </span></p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20preguntarte%20sobre%20Immunocal">Hacer mi pregunta por WhatsApp</a>
+        <a class="btn btn-primary l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20have%20a%20question%20about%20Immunocal">Ask my question on WhatsApp</a>
+        <a class="btn btn-primary l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D1%82%D0%B5%20%D0%BF%D0%BE%D0%BF%D0%B8%D1%82%D0%B0%D0%BC%20%D0%B7%D0%B0%20Immunocal">Задай въпроса си през WhatsApp</a>
+        <a class="btn btn-secondary" href="https://www.immunotec.com/es-ES/saludtotaleuropa/products" target="_blank" rel="noopener"><span class="l-es" lang="es">Comprar Immunocal</span><span class="l-en" lang="en">Buy Immunocal</span><span class="l-bg" lang="bg">Поръчай Immunocal</span></a>
+        <a class="btn btn-secondary l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20conocer%20el%20negocio%20de%20Immunotec">Conocer el negocio</a>
+        <a class="btn btn-secondary l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20want%20to%20learn%20about%20the%20Immunotec%20business">Learn about the business</a>
+        <a class="btn btn-secondary l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D0%BD%D0%B0%D1%83%D1%87%D0%B0%20%D0%BF%D0%BE%D0%B2%D0%B5%D1%87%D0%B5%20%D0%B7%D0%B0%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%20%D1%81%20Immunotec">Научи за бизнеса</a>
+      </div>
+
+      <ul class="trust">
+        <li><span class="l-es" lang="es">Responde una persona, no un formulario</span><span class="l-en" lang="en">A person answers, not a form</span><span class="l-bg" lang="bg">Отговаря човек, не формуляр</span></li>
+        <li><span class="l-es" lang="es">Hablar es gratis y sin compromiso</span><span class="l-en" lang="en">Talking is free, with no commitment</span><span class="l-bg" lang="bg">Да поговориш е безплатно и без ангажимент</span></li>
+        <li><span class="l-es" lang="es">Compras o te unes en el sitio oficial de la compañía</span><span class="l-en" lang="en">You buy or join on the company's official site</span><span class="l-bg" lang="bg">Купуваш или се присъединяваш в официалния сайт на компанията</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TRES PASOS ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">Cómo funciona</span><span class="l-en" lang="en">How it works</span><span class="l-bg" lang="bg">Как работи</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Tu camino en tres pasos</span><span class="l-en" lang="en">Your path in three steps</span><span class="l-bg" lang="bg">Пътят ти в три стъпки</span></h2>
+      <div class="stack" style="margin-top:1.25rem;max-width:52rem">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3><span class="l-es" lang="es">Conoce Immunocal</span><span class="l-en" lang="en">Get to know Immunocal</span><span class="l-bg" lang="bg">Запознай се с Immunocal</span></h3>
+            <p><span class="l-es" lang="es">Un suplemento alimenticio a base de proteína de suero de leche que se
+            mezcla con un líquido y se toma a diario. Sin sabores artificiales añadidos
+            y con la proteína como ingrediente principal.</span><span class="l-en" lang="en">A dietary supplement based on whey protein that you mix with a liquid
+            and take daily. No artificial flavors added, with protein as the main
+            ingredient.</span><span class="l-bg" lang="bg">Хранителна добавка на основата на протеин от суроватка, която се
+            разбърква с течност и се приема ежедневно. Без изкуствени аромати
+            и с протеина като основна съставка.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3><span class="l-es" lang="es">Habla con Vasil</span><span class="l-en" lang="en">Talk to Vasil</span><span class="l-bg" lang="bg">Говори с Васил</span></h3>
+            <p><span class="l-es" lang="es">Cuéntale qué te interesa. Vasil Vasilev, Consultor Independiente de
+            Immunotec, resuelve tus dudas y te indica cómo pedirlo. Una conversación
+            abierta, de acuerdo a tus necesidades.</span><span class="l-en" lang="en">Tell him what interests you. Vasil Vasilev, Independent Immunotec
+            Consultant, answers your questions and shows you how to order it. An open
+            conversation, based on your needs.</span><span class="l-bg" lang="bg">Разкажи какво те интересува. Васил Василев, независим консултант на
+            Immunotec, отговаря на въпросите ти и ти показва как да го поръчаш.
+            Отворен разговор, според твоите нужди.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3><span class="l-es" lang="es">Tú decides cómo empezar</span><span class="l-en" lang="en">You decide how to start</span><span class="l-bg" lang="bg">Ти решаваш как да започнеш</span></h3>
+            <p><span class="l-es" lang="es">Pides Immunocal como cliente o conoces cómo funciona el negocio.
+            Cualquiera de los dos caminos empieza con tu mensaje a Vasil Vasilev.</span><span class="l-en" lang="en">You order Immunocal as a customer or learn how the business works.
+            Either path starts with your message to Vasil Vasilev.</span><span class="l-bg" lang="bg">Поръчваш Immunocal като клиент или научаваш как работи бизнесът.
+            И двата пътя започват със съобщение до Васил Василев.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTO ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">El producto</span><span class="l-en" lang="en">The product</span><span class="l-bg" lang="bg">Продуктът</span></p>
+      <h2 class="reveal">Immunocal</h2>
+      <div class="card" style="margin-top:1.25rem">
+        <a class="product-img-link" href="immunocal-box.jpg" target="_blank" rel="noopener" title="Abrir la imagen en grande">
+          <img class="product-img" src="immunocal-box.jpg" width="1080" height="661" alt="Caja oficial de Immunocal, precursor de glutatión de Immunotec" loading="lazy" decoding="async">
+        </a>
+        <p class="footnote" style="text-align:center;margin-bottom:1.25rem"><span class="l-es" lang="es">
+          Imagen del envase oficial de Immunocal (en inglés).
+          Toca la imagen para verla en grande.
+        </span><span class="l-en" lang="en">
+          Image of the official Immunocal container (in English).
+          Tap the image to see it larger.
+        </span><span class="l-bg" lang="bg">
+          Изображение на официалната опаковка на Immunocal (на английски).
+          Докосни изображението, за да го видиш по-голямо.
+        </span></p>
+        <p class="path-tag"><span class="l-es" lang="es">Suplemento alimenticio</span><span class="l-en" lang="en">Dietary supplement</span><span class="l-bg" lang="bg">Хранителна добавка</span></p>
+        <h3 style="margin:.2rem 0 .5rem;font-size:1.3rem">Immunocal</h3>
+
+        <p><span class="l-es" lang="es">
+          Proteína de suero de leche aislada que se mezcla con agua, leche o zumo y
+          forma parte de tu día a día. La proteína es un nutriente esencial:
+          tu cuerpo la usa para construir y mantener la masa muscular.
+        </span><span class="l-en" lang="en">
+          Isolated whey protein that mixes with water, milk or juice and becomes part
+          of your daily routine. Protein is an essential nutrient: your body uses it
+          to build and maintain muscle mass.
+        </span><span class="l-bg" lang="bg">
+          Изолиран протеин от суроватка, който се смесва с вода, мляко или сок и
+          става част от ежедневието ти. Протеинът е основно хранително вещество:
+          тялото го използва, за да изгражда и поддържа мускулната маса.
+        </span></p>
+
+        <div class="chips">
+          <span class="chip"><span class="l-es" lang="es">Proteína de suero de leche</span><span class="l-en" lang="en">Whey protein</span><span class="l-bg" lang="bg">Протеин от суроватка</span></span>
+          <span class="chip"><span class="l-es" lang="es">Se mezcla con líquidos</span><span class="l-en" lang="en">Mixes with liquids</span><span class="l-bg" lang="bg">Смесва се с течности</span></span>
+          <span class="chip"><span class="l-es" lang="es">Uso diario</span><span class="l-en" lang="en">Daily use</span><span class="l-bg" lang="bg">Ежедневна употреба</span></span>
+        </div>
+
+        <ul class="checks">
+          <li><span class="l-es" lang="es">Aporta proteína de alta calidad</span><span class="l-en" lang="en">Provides high-quality protein</span><span class="l-bg" lang="bg">Осигурява висококачествен протеин</span></li>
+          <li><span class="l-es" lang="es">La proteína contribuye al aumento y a la conservación de la masa muscular</span><span class="l-en" lang="en">Protein contributes to the growth and maintenance of muscle mass</span><span class="l-bg" lang="bg">Протеинът допринася за изграждането и поддържането на мускулна маса</span></li>
+          <li><span class="l-es" lang="es">La proteína contribuye al mantenimiento de los huesos en condiciones normales</span><span class="l-en" lang="en">Protein contributes to the maintenance of normal bones</span><span class="l-bg" lang="bg">Протеинът допринася за поддържането на костите в нормално състояние</span></li>
+          <li><span class="l-es" lang="es">Formato en polvo, fácil de incorporar a la rutina</span><span class="l-en" lang="en">Powder format, easy to fit into your routine</span><span class="l-bg" lang="bg">Формат на прах, лесен за включване в ежедневието</span></li>
+        </ul>
+
+        <p class="footnote"><span class="l-es" lang="es">
+          Las frases anteriores son declaraciones autorizadas sobre la proteína como
+          nutriente. (Pendiente: confirmar contra la ficha oficial del producto en España.)
+        </span><span class="l-en" lang="en">
+          The statements above are authorized claims about protein as a nutrient.
+          (Pending: confirm against the official product sheet for Spain.)
+        </span><span class="l-bg" lang="bg">
+          Изреченията по-горе са разрешени твърдения за протеина като хранително
+          вещество. (Предстои: проверка срещу официалната фиша на продукта в Испания.)
+        </span></p>
+      </div>
+
+      <div class="warn">
+        <span class="l-es" lang="es"><strong>Advertencias:</strong> Immunocal contiene proteína de leche: no lo uses si
+        tienes alergia a la leche o a sus derivados. No es un medicamento y no diagnostica,
+        trata ni previene ninguna enfermedad. Si tienes alguna condición de salud, estás
+        embarazada o en período de lactancia, o vas a dárselo a un niño, consulta antes con
+        un profesional sanitario. Sigue las instrucciones de preparación del envase.
+        Conserva el envase cerrado en un lugar fresco y seco, fuera del alcance de los niños.</span><span class="l-en" lang="en"><strong>Warnings:</strong> Immunocal contains milk protein: do not use it if
+        you are allergic to milk or its derivatives. It is not a medicine and does not
+        diagnose, treat or prevent any disease. If you have a health condition, are
+        pregnant or breastfeeding, or will give it to a child, consult a healthcare
+        professional first. Follow the preparation instructions on the container.
+        Keep the container closed in a cool, dry place, out of the reach of children.</span><span class="l-bg" lang="bg"><strong>Предупреждения:</strong> Immunocal съдържа протеин от мляко: не го
+        използвай, ако имаш алергия към мляко или негови производни. Не е лекарство
+        и не диагностицира, лекува или предотвратява болести. Ако имаш някакво
+        здравословно състояние, си бременна или кърмиш, или ще го даваш на дете,
+        консултирай се предварително със здравен специалист. Следвай инструкциите
+        за приготвяне от опаковката. Съхранявай опаковката затворена на хладно и
+        сухо място, недостъпно за деца.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIENCIA DEL GLUTATIÓN ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">La ciencia</span><span class="l-en" lang="en">The science</span><span class="l-bg" lang="bg">Науката</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">La ciencia del glutatión</span><span class="l-en" lang="en">The science of glutathione</span><span class="l-bg" lang="bg">Науката за глутатиона</span></h2>
+
+      <div class="card" style="margin-top:1.25rem">
+        <div class="science-grid">
+          <div>
+            <p class="stats-lead"><span class="l-es" lang="es">Immunocal en cifras, según la presentación oficial de la compañía:*</span><span class="l-en" lang="en">Immunocal in numbers, according to the company's official presentation:*</span><span class="l-bg" lang="bg">Immunocal в цифри, според официалното представяне на компанията:*</span></p>
+            <div class="stats">
+              <div class="stat"><span class="l-es" lang="es"><b>+500 M</b><small>porciones vendidas</small></span><span class="l-en" lang="en"><b>500M+</b><small>servings sold</small></span><span class="l-bg" lang="bg"><b>+500 млн.</b><small>продадени порции</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>Millones</b><small>de clientes felices</small></span><span class="l-en" lang="en"><b>Millions</b><small>of happy customers</small></span><span class="l-bg" lang="bg"><b>Милиони</b><small>доволни клиенти</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+45</b><small>años de investigación</small></span><span class="l-en" lang="en"><b>45+</b><small>years of research</small></span><span class="l-bg" lang="bg"><b>+45</b><small>години изследвания</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>3</b><small>versiones diferentes</small></span><span class="l-en" lang="en"><b>3</b><small>different versions</small></span><span class="l-bg" lang="bg"><b>3</b><small>различни версии</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>23</b><small>estudios doble ciego</small></span><span class="l-en" lang="en"><b>23</b><small>double-blind studies</small></span><span class="l-bg" lang="bg"><b>23</b><small>проучвания с двойно слепяване</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+85</b><small>estudios publicados</small></span><span class="l-en" lang="en"><b>85+</b><small>published studies</small></span><span class="l-bg" lang="bg"><b>+85</b><small>публикувани проучвания</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+400</b><small>artículos de sus creadores</small></span><span class="l-en" lang="en"><b>400+</b><small>articles by its creators</small></span><span class="l-bg" lang="bg"><b>+400</b><small>статии на създателите му</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+125</b><small>instituciones involucradas</small></span><span class="l-en" lang="en"><b>125+</b><small>institutions involved</small></span><span class="l-bg" lang="bg"><b>+125</b><small>ангажирани институции</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>78</b><small>patentes internacionales</small></span><span class="l-en" lang="en"><b>78</b><small>international patents</small></span><span class="l-bg" lang="bg"><b>78</b><small>международни патента</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+70</b><small>atletas patrocinados</small></span><span class="l-en" lang="en"><b>70+</b><small>sponsored athletes</small></span><span class="l-bg" lang="bg"><b>+70</b><small>спонсорирани спортисти</small></span></div>
+            </div>
+            <p class="footnote"><span class="l-es" lang="es">Pruebas y certificaciones de terceros: Informed Sport y Clean Label. Immunocal figura en los libros de referencia médica PDR (EE. UU.) y CPS (Canadá).</span><span class="l-en" lang="en">Third-party testing and certifications: Informed Sport and Clean Label. Immunocal is listed in the PDR (U.S.) and CPS (Canada) medical reference books.</span><span class="l-bg" lang="bg">Независими изпитвания и сертификации: Informed Sport и Clean Label. Immunocal е включен в медицинските справочници PDR (САЩ) и CPS (Канада).</span></p>
+          </div>
+          <figure class="gutman">
+            <img src="dr-gutman.jpg" width="901" height="835" alt="Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec" loading="lazy" decoding="async">
+            <figcaption><span class="l-es" lang="es">Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec</span><span class="l-en" lang="en">Dr. Jimmy Gutman, Chairman of Immunotec's Scientific Advisory Board</span><span class="l-bg" lang="bg">Д-р Джимъти Гътман, председател на Научния консултативен съвет на Immunotec</span></figcaption>
+          </figure>
+        </div>
+
+        <p><span class="l-es" lang="es">
+          Tu cuerpo produce glutatión a partir de tres aminoácidos: glicina, glutamato
+          y cisteína. Immunocal aporta Cisteína Enlazada®, un precursor exclusivo que
+          tu cuerpo utiliza para producir glutatión por sí mismo.*
+        </span><span class="l-en" lang="en">
+          Your body makes glutathione from three amino acids: glycine, glutamate and
+          cysteine. Immunocal provides Bonded Cysteine® (Cisteína Enlazada®), an
+          exclusive precursor your body uses to produce glutathione on its own.*
+        </span><span class="l-bg" lang="bg">
+          Тялото ти произвежда глутатион от три аминокиселини: глицин, глутамат и
+          цистеин. Immunocal осигурява Cisteína Enlazada® (свързан цистеин) — ексклузивен
+          прекурсор, който тялото ти използва, за да произвежда сам глутатион.*
+        </span></p>
+
+        <a class="product-img-link" style="margin-top:.8rem" href="science-glutathione.jpg" target="_blank" rel="noopener" title="Abrir la imagen en grande">
+          <img class="product-img" src="science-glutathione.jpg" width="1600" height="1215" alt="Esquema 'The science of Glutathione' de la presentación oficial de Immunotec: la célula produce glutatión a partir de glicina, glutamato y cisteína" loading="lazy" decoding="async">
+        </a>
+        <p class="footnote" style="text-align:center;margin-bottom:1.25rem"><span class="l-es" lang="es">
+          Imagen de la presentación oficial "Discover Immunotec" (en inglés).
+          Toca la imagen para verla en grande.
+        </span><span class="l-en" lang="en">
+          Image from Immunotec's official presentation "Discover Immunotec" (in English).
+          Tap the image to see it larger.
+        </span><span class="l-bg" lang="bg">
+          Изображение от официалното представяне на Immunotec „Discover Immunotec" (на английски).
+          Докосни изображението, за да го видиш по-голямо.
+        </span></p>
+
+        <blockquote>
+          <p><span class="l-es" lang="es">"El glutatión es de gran importancia en la actividad antioxidante celular, e Immunocal funciona como un sistema de administración de cisteína que puede mejorar la síntesis de glutatión..."</span><span class="l-en" lang="en">"Glutathione is of great importance in cellular antioxidant activity, and Immunocal functions as a cysteine delivery system that can improve glutathione synthesis..."</span><span class="l-bg" lang="bg">„Глутатионът е от голямо значение за клетъчната антиоксидантна активност, а Immunocal функционира като система за доставяне на цистеин, която може да подобри синтеза на глутатион..."</span></p>
+          <p class="footnote" style="margin-top:.4rem"><span class="l-es" lang="es">— Dr. Luc Montagnier, Premio Nobel de Fisiología o Medicina 2008. Cita incluida en la presentación oficial de Immunotec.</span><span class="l-en" lang="en">— Dr. Luc Montagnier, Nobel Prize in Physiology or Medicine 2008. Quote included in Immunotec's official presentation.</span><span class="l-bg" lang="bg">— Д-р Люк Монтание, Нобелова награда за физиология или медицина 2008. Цитат от официалното представяне на Immunotec.</span></p>
+        </blockquote>
+
+        <p class="footnote" style="margin-top:1rem"><span class="l-es" lang="es">
+          *Afirmaciones de la compañía citadas en sus presentaciones oficiales.
+          Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna
+          enfermedad. La experiencia es distinta en cada persona: si tienes alguna condición
+          de salud, consulta antes con un profesional sanitario.
+        </span><span class="l-en" lang="en">
+          *Company statements quoted in its official presentations.
+          This product is not intended to diagnose, treat, cure or prevent any disease.
+          Experience varies from person to person: if you have a health condition, consult
+          a healthcare professional first.
+        </span><span class="l-bg" lang="bg">
+          *Твърдения на компанията, цитирани в официалните ѝ представяния.
+          Този продукт не е предназначен да диагностицира, лекува или предотвратява болести.
+          Опитът е различен за всеки човек: ако имаш здравословно състояние, консултирай се
+          предварително със здравен специалист.
+        </span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOS CAMINOS ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">Tú decides</span><span class="l-en" lang="en">You decide</span><span class="l-bg" lang="bg">Ти решаваш</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Tú decides cómo empezar</span><span class="l-en" lang="en">You decide how to start</span><span class="l-bg" lang="bg">Ти решаваш как да започнеш</span></h2>
+      <p style="margin-top:.5rem"><span class="l-es" lang="es">Los dos caminos empiezan igual: con un mensaje a Vasil Vasilev. Elige el que va contigo.</span><span class="l-en" lang="en">Both paths start the same way: with a message to Vasil Vasilev. Choose the one that fits you.</span><span class="l-bg" lang="bg">И двата пътя започват по един и същ начин: със съобщение до Васил Василев. Избери този, който е за теб.</span></p>
+
+      <div class="paths" style="margin-top:1.4rem">
+        <div class="card path">
+          <p class="path-tag"><span class="l-es" lang="es">Quiero ser cliente</span><span class="l-en" lang="en">I want to be a customer</span><span class="l-bg" lang="bg">Искам да бъда клиент</span></p>
+          <h3><span class="l-es" lang="es">Quiero Immunocal</span><span class="l-en" lang="en">I want Immunocal</span><span class="l-bg" lang="bg">Искам Immunocal</span></h3>
+          <p><span class="l-es" lang="es">Lo compras en el sitio oficial de la compañía. Si te surge una duda,
+          Vasil Vasilev te acompaña antes y después de tu pedido.</span><span class="l-en" lang="en">You buy it on the company's official site. If a question comes up,
+          Vasil Vasilev supports you before and after your order.</span><span class="l-bg" lang="bg">Поръчваш го в официалния сайт на компанията. Ако възникне въпрос,
+          Васил Василев те придружава преди и след поръчката.</span></p>
+          <a class="btn btn-primary" href="https://www.immunotec.com/es-ES/saludtotaleuropa/products" target="_blank" rel="noopener"><span class="l-es" lang="es">Comprar Immunocal</span><span class="l-en" lang="en">Buy Immunocal</span><span class="l-bg" lang="bg">Поръчай Immunocal</span></a>
+        </div>
+        <div class="card path">
+          <p class="path-tag"><span class="l-es" lang="es">Quiero conocer el negocio</span><span class="l-en" lang="en">I want to learn about the business</span><span class="l-bg" lang="bg">Искам да науча за бизнеса</span></p>
+          <h3><span class="l-es" lang="es">Quiero un negocio con Immunotec</span><span class="l-en" lang="en">I want a business with Immunotec</span><span class="l-bg" lang="bg">Искам бизнес с Immunotec</span></h3>
+          <p><span class="l-es" lang="es">Compartes lo que usas y la compañía paga comisiones por las ventas que se
+          hacen. Vasil Vasilev te explica qué se hace, qué cuesta entrar y qué dice la
+          compañía. Lo que ocurra depende de tu actividad: no hay ingresos garantizados.</span><span class="l-en" lang="en">You share what you use and the company pays commissions on the sales
+          made. Vasil Vasilev explains what you do, what it costs to join and what
+          the company says. What happens depends on your activity: there is no
+          guaranteed income.</span><span class="l-bg" lang="bg">Споделяш това, което използваш, и компанията плаща комисиони за
+          направените продажби. Васил Василев ще ти обясни какво се прави, какво
+          струва влизането и какво казва компанията. Какво ще се случи, зависи от
+          твоята активност: няма гарантирани доходи.</span></p>
+          <a class="btn btn-secondary l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20conocer%20el%20negocio%20de%20Immunotec">Conocer cómo funciona</a>
+          <a class="btn btn-secondary l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20want%20to%20learn%20about%20the%20Immunotec%20business">Learn how it works</a>
+          <a class="btn btn-secondary l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D0%BD%D0%B0%D1%83%D1%87%D0%B0%20%D0%BF%D0%BE%D0%B2%D0%B5%D1%87%D0%B5%20%D0%B7%D0%B0%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%20%D1%81%20Immunotec">Научи как работи</a>
+        </div>
+      </div>
+
+      <div class="path-note"><span class="l-es" lang="es">
+        Puedes empezar como cliente y conocer el negocio después, cuando el producto
+        ya te haya convencido. Es una forma sensata de decidir.
+      </span><span class="l-en" lang="en">
+        You can start as a customer and learn about the business later, once the
+        product has convinced you. It is a sensible way to decide.
+      </span><span class="l-bg" lang="bg">
+        Можеш да започнеш като клиент и да научиш за бизнеса после, когато продуктът
+        вече те е убедил. Това е разумен начин да решиш.
+      </span></div>
+    </div>
+  </section>
+
+  <!-- ============ ANTES DE DECIDIR ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">Transparencia</span><span class="l-en" lang="en">Transparency</span><span class="l-bg" lang="bg">Прозрачност</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Lo que conviene saber antes de decidir</span><span class="l-en" lang="en">What you should know before deciding</span><span class="l-bg" lang="bg">Какво е добре да знаеш, преди да решиш</span></h2>
+      <div class="decide" style="margin-top:1.25rem">
+
+        <div class="decide-item">
+          <div class="decide-num">01</div>
+          <div>
+            <h3><span class="l-es" lang="es">Cómo unirte</span><span class="l-en" lang="en">How to join</span><span class="l-bg" lang="bg">Как се присъединяваш</span></h3>
+            <p><span class="l-es" lang="es">Te inscribes desde el sitio oficial de Immunotec: eliges tu país
+            (España), escribes el número de identificación del consultor que te
+            acompaña (el de Vasil Vasilev), eliges un kit de inscripción y completas
+            tus datos. Antes de terminar lees y aceptas los términos y condiciones.
+            Si solo quieres el producto, no necesitas unirte.</span><span class="l-en" lang="en">You sign up on Immunotec's official site: choose your country
+            (Spain), enter the identification number of the consultant who supports
+            you (Vasil Vasilev's), choose a starter kit and complete your details.
+            Before finishing you read and accept the terms and conditions. If you
+            only want the product, you do not need to join.</span><span class="l-bg" lang="bg">Регистрираш се от официалния сайт на Immunotec: избираш държавата си
+            (Испания), пишеш идентификационния номер на консултанта, който те
+            придружава (на Васил Василев), избираш начален комплект и попълваш
+            данните си. Преди да завършиш, четеш и приемаш общите условия.
+            Ако искаш само продукта, не е нужно да се присъединяваш.</span></p>
+          </div>
+        </div>
+
+        <div class="decide-item">
+          <div class="decide-num">02</div>
+          <div>
+            <h3><span class="l-es" lang="es">Consultor o cliente</span><span class="l-en" lang="en">Consultant or customer</span><span class="l-bg" lang="bg">Консултант или клиент</span></h3>
+            <p><span class="l-es" lang="es">Como cliente, pides el producto en el sitio oficial. Como consultor,
+            hay condiciones propias que la compañía publica en su sitio y que pueden
+            cambiar. Vasil te explica las opciones actuales y te confirma por
+            escrito qué aplican hoy antes de que decidas.</span><span class="l-en" lang="en">As a customer, you order the product on the official site. As a
+            consultant, there are specific conditions the company publishes on its
+            site, and they can change. Vasil explains the current options and
+            confirms them to you in writing before you decide.</span><span class="l-bg" lang="bg">Като клиент поръчваш продукта в официалния сайт. Като консултант има
+            собствени условия, които компанията публикува в сайта си и които могат
+            да се променят. Васил ще ти обясни актуалните възможности и ще ти ги
+            потвърди писмено, преди да решиш.</span></p>
+          </div>
+        </div>
+
+        <div class="decide-item">
+          <div class="decide-num">03</div>
+          <div>
+            <h3><span class="l-es" lang="es">Qué cuesta entrar</span><span class="l-en" lang="en">What it costs to join</span><span class="l-bg" lang="bg">Какво струва влизането</span></h3>
+            <p><span class="l-es" lang="es">Comprar como cliente no tiene cuota de inscripción. Para ser consultor
+            hay que comprar un kit de inscripción; Immunotec muestra su precio en el
+            momento de inscribirte. Pídele a Vasil Vasilev que te lo confirme por
+            escrito antes de decidir.</span><span class="l-en" lang="en">Buying as a customer has no sign-up fee. To become a consultant you
+            must buy a starter kit; Immunotec shows its price when you sign up. Ask
+            Vasil Vasilev to confirm it in writing before you decide.</span><span class="l-bg" lang="bg">Купуването като клиент няма такса за регистрация. За да бъдеш
+            консултант, трябва да купиш начален комплект; Immunotec показва цената
+            му в момента на регистрацията. Помоли Васил Василев да ти го потвърди
+            писмено, преди да решиш.</span></p>
+          </div>
+        </div>
+
+        <div class="decide-item">
+          <div class="decide-num">04</div>
+          <div>
+            <h3><span class="l-es" lang="es">Qué dice la compañía sobre ingresos</span><span class="l-en" lang="en">What the company says about income</span><span class="l-bg" lang="bg">Какво казва компанията за доходите</span></h3>
+            <p><span class="l-es" lang="es">La posibilidad de ganar comisiones depende de la actividad de cada
+            persona. Immunotec publica una declaración de ingresos oficial; las cifras
+            vigentes corresponden a su mercado de EE. UU. y no representan resultados
+            en España. Léela antes de decidir:
+            <a class="inline-link" href="https://cdn.immunotec.com/docs/Agrmts/es/US/IncomeDisclosure-2026-es-US.pdf" target="_blank" rel="noopener">declaración de ingresos oficial (mercado EE. UU., en español)</a>.</span><span class="l-en" lang="en">The chance to earn commissions depends on each person's activity.
+            Immunotec publishes an official income disclosure; the current figures
+            correspond to its U.S. market and do not represent results in Spain.
+            Read it before deciding:
+            <a class="inline-link" href="https://cdn.immunotec.com/docs/Agrmts/es/US/IncomeDisclosure-2026-es-US.pdf" target="_blank" rel="noopener">official income disclosure (U.S. market, in Spanish)</a>.</span><span class="l-bg" lang="bg">Възможността да печелиш комисиони зависи от активността на всеки
+            човек. Immunotec публикува официална декларация за доходите; актуалните
+            цифри съответстват на пазара в САЩ и не представят резултати в Испания.
+            Прочети я, преди да решиш:
+            <a class="inline-link" href="https://cdn.immunotec.com/docs/Agrmts/es/US/IncomeDisclosure-2026-es-US.pdf" target="_blank" rel="noopener">официална декларация за доходите (пазар САЩ, на испански)</a>.</span></p>
+          </div>
+        </div>
+
+        <div class="decide-item">
+          <div class="decide-num">05</div>
+          <div>
+            <h3><span class="l-es" lang="es">Qué no prometemos</span><span class="l-en" lang="en">What we do not promise</span><span class="l-bg" lang="bg">Какво не обещаваме</span></h3>
+            <p><span class="l-es" lang="es">No hay ingresos garantizados ni tiempos de retorno. Esta página no
+            promete resultados económicos ni de salud. Una compra o una inscripción
+            nunca deben hacerse con dinero que no puedas permitirte arriesgar.</span><span class="l-en" lang="en">There is no guaranteed income and no payback timelines. This page
+            promises no financial or health results. Never make a purchase or sign
+            up with money you cannot afford to risk.</span><span class="l-bg" lang="bg">Няма гарантирани доходи и няма срокове за възвръщаемост. Тази страница
+            не обещава финансови или здравни резултати. Покупка или регистрация
+            никога не трябва да се правят с пари, които не можеш да си позволиш
+            да рискуваш.</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUIÉN ES HRISTO ============ -->
+  <section>
+    <div class="container">
+      <div class="card" style="max-width:42rem">
+        <div class="attend" style="margin-bottom:.9rem">
+          <img class="avatar" src="perfil-vasil.jpg" alt="Vasil Vasilev" style="width:4rem;height:4rem">
+          <div>
+            <div class="attend-name"><span class="l-es" lang="es">Vasil Vasilev te acompaña</span><span class="l-en" lang="en">Vasil Vasilev is by your side</span><span class="l-bg" lang="bg">Васил Василев е до теб</span></div>
+            <div class="attend-role"><span class="l-es" lang="es">Consultor Independiente de Immunotec</span><span class="l-en" lang="en">Independent Immunotec Consultant</span><span class="l-bg" lang="bg">Независим консултант на Immunotec</span></div>
+          </div>
+        </div>
+        <p><span class="l-es" lang="es">
+          Estudiante de psicología y Consultor Independiente de Immunotec. Acompaña a
+          personas que quieren conocer Immunocal y responde en persona, por WhatsApp.
+        </span><span class="l-en" lang="en">
+          Psychology student and Independent Immunotec Consultant. He supports people
+          who want to learn about Immunocal and answers in person, on WhatsApp.
+        </span><span class="l-bg" lang="bg">
+          Студент по психология и независим консултант на Immunotec. Придружава
+          хора, които искат да научат за Immunocal, и отговаря лично, през WhatsApp.
+        </span></p>
+        <p class="footnote"><span class="l-es" lang="es">
+          No es un empleado de la compañía: gana comisiones si vende, y por eso te lo
+          decimos de entrada. Preferimos que decidas con toda la información.
+        </span><span class="l-en" lang="en">
+          He is not a company employee: he earns commissions if he sells, and that is
+          why we say so up front. We prefer you decide with all the information.
+        </span><span class="l-bg" lang="bg">
+          Не е служител на компанията: печели комисиони, ако продава, и затова го
+          казваме от самото начало. Предпочитаме да решиш с цялата информация.
+        </span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">Preguntas frecuentes</span><span class="l-en" lang="en">Frequently asked questions</span><span class="l-bg" lang="bg">Чести въпроси</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Antes de escribir</span><span class="l-en" lang="en">Before you write</span><span class="l-bg" lang="bg">Преди да напишеш</span></h2>
+
+      <div class="faq-list">
+        <details>
+          <summary><span class="l-es" lang="es">¿Qué me van a vender?</span><span class="l-en" lang="en">What will you sell me?</span><span class="l-bg" lang="bg">Какво ще ми продадете?</span></summary>
+          <p><span class="l-es" lang="es">Solo lo que tú decidas llevarte. Imagina tener ya Immunocal en casa:
+          Vasil Vasilev te acompaña hasta ese punto. Primero resuelve tus dudas y,
+          cuando veas que tiene sentido para ti, lo pides con el enlace oficial.
+          Y si lo que te llama es tener tu propio negocio, también te explica cómo funciona.</span><span class="l-en" lang="en">Only what you decide to take. Imagine already having Immunocal at home:
+          Vasil Vasilev walks with you up to that point. First he answers your
+          questions and, when you see it makes sense for you, you order with the
+          official link. And if what attracts you is having your own business, he
+          also explains how it works.</span><span class="l-bg" lang="bg">Само това, което ти решиш да вземеш. Представи си, че вече имаш
+          Immunocal у дома: Васил Василев те придружава до този момент. Първо
+          отговаря на въпросите ти и, когато видиш, че има смисъл за теб, го
+          поръчваш с официалната връзка. А ако това, което те привлича, е собствен
+          бизнес, той ще ти обясни как работи.</span></p>
+        </details>
+
+        <details>
+          <summary><span class="l-es" lang="es">¿Es un medicamento?</span><span class="l-en" lang="en">Is it a medicine?</span><span class="l-bg" lang="bg">Лекарство ли е?</span></summary>
+          <p><span class="l-es" lang="es">No. Immunocal es un suplemento alimenticio a base de proteína de suero de
+          leche. Los suplementos no diagnostican, tratan ni previenen enfermedades.
+          Si tienes una duda de salud, consúltala con un profesional sanitario.</span><span class="l-en" lang="en">No. Immunocal is a dietary supplement based on whey protein. Supplements
+          do not diagnose, treat or prevent diseases. If you have a health question,
+          discuss it with a healthcare professional.</span><span class="l-bg" lang="bg">Не. Immunocal е хранителна добавка на основата на протеин от суроватка.
+          Добавките не диагностицират, не лекуват и не предотвратяват болести.
+          Ако имаш здравословен въпрос, обсъди го със здравен специалист.</span></p>
+        </details>
+
+        <details>
+          <summary><span class="l-es" lang="es">¿Quién es Vasil Vasilev?</span><span class="l-en" lang="en">Who is Vasil Vasilev?</span><span class="l-bg" lang="bg">Кой е Васил Василев?</span></summary>
+          <p><span class="l-es" lang="es">Un Consultor Independiente de Immunotec, no un empleado de la compañía.
+          Gana comisiones si vende, y por eso te lo decimos de entrada: preferimos que
+          decidas con toda la información.</span><span class="l-en" lang="en">An Independent Immunotec Consultant, not a company employee. He earns
+          commissions if he sells, and that is why we say so up front: we prefer you
+          decide with all the information.</span><span class="l-bg" lang="bg">Независим консултант на Immunotec, не служител на компанията. Печели
+          комисиони, ако продава, и затова го казваме от самото начало: предпочитаме
+          да решиш с цялата информация.</span></p>
+        </details>
+
+        <details>
+          <summary><span class="l-es" lang="es">¿Cómo empiezo con Vasil?</span><span class="l-en" lang="en">How do I start with Vasil?</span><span class="l-bg" lang="bg">Как да започна с Васил?</span></summary>
+          <p><span class="l-es" lang="es">Toca el botón de WhatsApp y dile si quieres Immunocal como cliente o si
+          quieres conocer el negocio. Vasil te responde en persona y te guía paso a
+          paso. Hablar es gratis.</span><span class="l-en" lang="en">Tap the WhatsApp button and tell him whether you want Immunocal as a
+          customer or want to learn about the business. Vasil answers in person and
+          guides you step by step. Talking is free.</span><span class="l-bg" lang="bg">Натисни бутона на WhatsApp и му кажи искаш ли Immunocal като клиент или
+          искаш да научиш за бизнеса. Васил ти отговаря лично и те води стъпка по
+          стъпка. Да поговориш е безплатно.</span></p>
+        </details>
+
+        <details>
+          <summary><span class="l-es" lang="es">¿Y si quiero algo más que comprar?</span><span class="l-en" lang="en">What if I want more than buying?</span><span class="l-bg" lang="bg">А ако искам нещо повече от да купя?</span></summary>
+          <p><span class="l-es" lang="es">Puedes empezar como cliente y, si el producto te convence, conocer cómo
+          funciona el negocio. Vasil te explica qué se hace, qué cuesta entrar y qué
+          dice la compañía sobre lo que se puede esperar. No hay promesas de dinero:
+          eso depende de tu actividad.</span><span class="l-en" lang="en">You can start as a customer and, if the product convinces you, learn how
+          the business works. Vasil explains what you do, what it costs to join and
+          what the company says about what to expect. There are no promises of money:
+          that depends on your activity.</span><span class="l-bg" lang="bg">Можеш да започнеш като клиент и, ако Immunocal те убеди, да научиш как
+          работи бизнесът. Васил ще ти обясни какво се прави, какво струва влизането
+          и какво казва компанията за това, което може да се очаква. Няма обещания
+          за пари: това зависи от твоята активност.</span></p>
+        </details>
+
+        <details>
+          <summary><span class="l-es" lang="es">¿Qué pasa con mis datos?</span><span class="l-en" lang="en">What happens to my data?</span><span class="l-bg" lang="bg">Какво става с моите данни?</span></summary>
+          <p><span class="l-es" lang="es">Esta página no te pide datos. Si escribes por WhatsApp, Vasil verá tu
+          número y lo que le cuentes, y lo usa solo para responderte. Puedes pedirle
+          que lo borre cuando quieras.</span><span class="l-en" lang="en">This page does not ask for your data. If you write on WhatsApp, Vasil
+          will see your number and what you tell him, and he uses it only to reply.
+          You can ask him to delete it whenever you want.</span><span class="l-bg" lang="bg">Тази страница не иска данни. Ако пишеш през WhatsApp, Васил ще види
+          номера ти и това, което разкажеш, и го използва само за да ти отговори.
+          Можеш да го помолиш да го изтрие, когато искаш.</span></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section>
+    <div class="bg-flag bg-flag-4 bg-only" aria-hidden="true"></div>
+    <div class="container" style="text-align:center;position:relative;z-index:1">
+      <h2 class="reveal"><span class="l-es" lang="es">Habla con Vasil Vasilev</span><span class="l-en" lang="en">Talk to Vasil Vasilev</span><span class="l-bg" lang="bg">Говори с Васил Василев</span></h2>
+      <p style="max-width:36rem;margin:0 auto"><span class="l-es" lang="es">Cuéntale si quieres el producto o el negocio. Por WhatsApp te responde una
+      persona, sin formularios y sin compromiso.</span><span class="l-en" lang="en">Tell him whether you want the product or the business. On WhatsApp a
+      person answers, no forms and no commitment.</span><span class="l-bg" lang="bg">Разкажи му искаш ли продукта или бизнеса. През WhatsApp ти отговаря човек —
+      без формуляри и без ангажимент.</span></p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-primary l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20preguntarte%20sobre%20Immunocal">Hacer mi pregunta por WhatsApp</a>
+        <a class="btn btn-primary l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20have%20a%20question%20about%20Immunocal">Ask my question on WhatsApp</a>
+        <a class="btn btn-primary l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D1%82%D0%B5%20%D0%BF%D0%BE%D0%BF%D0%B8%D1%82%D0%B0%D0%BC%20%D0%B7%D0%B0%20Immunocal">Задай въпроса си през WhatsApp</a>
+        <a class="btn btn-secondary" href="https://www.immunotec.com/es-ES/saludtotaleuropa/products" target="_blank" rel="noopener"><span class="l-es" lang="es">Comprar Immunocal</span><span class="l-en" lang="en">Buy Immunocal</span><span class="l-bg" lang="bg">Поръчай Immunocal</span></a>
+        <a class="btn btn-secondary l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20conocer%20el%20negocio%20de%20Immunotec">Conocer el negocio</a>
+        <a class="btn btn-secondary l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20want%20to%20learn%20about%20the%20Immunotec%20business">Learn about the business</a>
+        <a class="btn btn-secondary l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D0%BD%D0%B0%D1%83%D1%87%D0%B0%20%D0%BF%D0%BE%D0%B2%D0%B5%D1%87%D0%B5%20%D0%B7%D0%B0%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%20%D1%81%20Immunotec">Научи за бизнеса</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer>
+    <div class="container">
+      <p><span class="l-es" lang="es">Productos de bienestar general. No son medicamentos y no diagnostican,
+      tratan ni previenen enfermedades. No entran fármacos al cuerpo. La experiencia
+      es distinta en cada persona según su cuerpo.</span><span class="l-en" lang="en">General wellness products. They are not medicines and do not diagnose,
+      treat or prevent diseases. No drugs enter the body. The experience is different
+      for each person depending on their body.</span><span class="l-bg" lang="bg">Продукти за общо благополучие. Не са лекарства и не диагностицират, лекуват
+      или предотвратяват болести. В тялото не влиза нищо фармакологично. Опитът е
+      различен за всеки човек според тялото му.</span></p>
+      <p><span class="l-es" lang="es">Vasil Vasilev es un Empresario Independiente de Immunotec y puede ganar
+      comisiones por las ventas. No es empleado de la compañía.</span><span class="l-en" lang="en">Vasil Vasilev is an Independent Business Owner with Immunotec and may
+      earn commissions on sales. He is not a company employee.</span><span class="l-bg" lang="bg">Васил Василев е независим предприемач на Immunotec и може да печели
+      комисиони от продажбите. Не е служител на компанията.</span></p>
+      <p><span class="l-es" lang="es">Página personal de un Empresario Independiente. La marca es de su compañía;
+      la plataforma es VasilevLegacy.</span><span class="l-en" lang="en">Personal page of an Independent Business Owner. The brand belongs to his
+      company; the platform is VasilevLegacy.</span><span class="l-bg" lang="bg">Лична страница на независим предприемач. Марката е на компанията му;
+      платформата е VasilevLegacy.</span></p>
+    </div>
+  </footer>
+
+</main>
+
+<a class="fab l-es" lang="es" href="https://wa.me/34670333241?text=Hola%20Vasil%2C%20quiero%20preguntarte%20sobre%20Immunocal">
+  <span class="fab-label">Pregúntame</span>
+  <span class="fab-circle">
+    <span class="ping-ring" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </span>
+</a>
+
+<a class="fab l-en" lang="en" href="https://wa.me/34670333241?text=Hi%20Vasil%2C%20I%20have%20a%20question%20about%20Immunocal">
+  <span class="fab-label">Ask me</span>
+  <span class="fab-circle">
+    <span class="ping-ring" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </span>
+</a>
+
+<a class="fab l-bg" lang="bg" href="https://wa.me/34670333241?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%2C%20%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%2C%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BC%20%D0%B4%D0%B0%20%D1%82%D0%B5%20%D0%BF%D0%BE%D0%BF%D0%B8%D1%82%D0%B0%D0%BC%20%D0%B7%D0%B0%20Immunocal">
+  <span class="fab-label">Запитай ме</span>
+  <span class="fab-circle">
+    <span class="ping-ring" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </span>
+</a>
+
+</body>
+</html>
