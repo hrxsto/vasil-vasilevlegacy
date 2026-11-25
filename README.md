@@ -22,5 +22,4 @@ vía GitHub Pages (pendiente de configurar).
 - Sin promesas de ingresos ni de salud. Los avisos legales del pie son obligatorios.
 - og:url, og:image y canonical apuntan a `https://vasil.vasilevlegacy.net/`.
 - Este repo es público a propósito: contiene la foto y el WhatsApp de contacto de Vasil.
-- Pendiente: sección "Acerca de" con la bio real de Vasil (ahora mantiene la de
-  Hristo como marcador) y favicon personalizado.
+- Pendiente: favicon personalizado.
