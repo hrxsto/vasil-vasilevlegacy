@@ -49,9 +49,7 @@
    ¿Por qué Vasil? reescrita como anécdota (ozonoterapia en Colombia).
    Retoche posterior del mismo día: paso 1 reescrito (potencial escalable, sin
    promesa de estilo de vida), sección movida a la primera posición tras el
-   hero y retitulada "El camino de un legado" (kicker retirado). Segundo
-   retoche: vídeo del Dr. García Pelayo en El producto (sustituye a la foto
-   de la caja) y retirada completa la sección "Cómo tomar Immunocal".
+   hero y retitulada "El camino de un legado" (kicker retirado).
  -->
 
 <html lang="es">
@@ -323,6 +321,16 @@
     box-shadow:0 0 0 4px #fff;
   }
   .step h3{margin-bottom:.25rem}
+
+  /* cómo tomar: tira visual paso a paso */
+  .howto-visual{
+    display:flex;align-items:center;justify-content:center;
+    gap:1.4rem;flex-wrap:wrap;margin:1.75rem auto 0;
+  }
+  .howto-item{display:flex;flex-direction:column;align-items:center;gap:.45rem}
+  .howto-item svg{width:4.5rem;height:4.5rem;color:var(--primary)}
+  .howto-caption{font-size:.8rem;color:var(--muted-foreground);text-align:center;max-width:9rem}
+  .howto-arrow{color:var(--primary);opacity:.55;font-size:1.5rem;line-height:1;margin-bottom:1.3rem}
 
   /* producto */
   .product-img{
@@ -714,15 +722,13 @@
       <p class="kicker"><span class="l-es" lang="es">El producto</span><span class="l-en" lang="en">The product</span><span class="l-bg" lang="bg">Продуктът</span></p>
       <h2 class="reveal">Immunocal</h2>
       <div class="card" style="margin-top:1.25rem">
-        <button class="video-link" type="button" data-youtube="UCXuX7t_SUU">
-          <img class="product-img" src="video-garcia-pelayo.jpg" width="1280" height="720" alt="Vídeo explicativo del Dr. García Pelayo sobre Immunocal (en español)" loading="lazy" decoding="async">
-        </button>
+        <img class="product-img" src="immunocal-box.jpg" width="1080" height="661" alt="Caja oficial de Immunocal, precursor de glutatión de Immunotec" loading="lazy" decoding="async">
         <p class="footnote" style="text-align:center;margin-bottom:1.25rem"><span class="l-es" lang="es">
-          Vídeo explicativo del Dr. García Pelayo (en español). Toca la imagen para reproducir el vídeo aquí.
+          Imagen del envase oficial de Immunocal (en inglés).
         </span><span class="l-en" lang="en">
-          Explanatory video by Dr. García Pelayo (in Spanish). Tap the image to play the video here.
+          Image of the official Immunocal container (in English).
         </span><span class="l-bg" lang="bg">
-          Обяснително видео на д-р Гарсия Пелайо (на испански). Докосни изображението, за да гледаш видеото тук.
+          Изображение на официалната опаковка на Immunocal (на английски).
         </span></p>
         <p class="path-tag"><span class="l-es" lang="es">Suplemento alimenticio</span><span class="l-en" lang="en">Dietary supplement</span><span class="l-bg" lang="bg">Хранителна добавка</span></p>
         <h3 style="margin:.2rem 0 .5rem;font-size:1.3rem">Immunocal</h3>
@@ -815,6 +821,71 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO TOMAR ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">El uso</span><span class="l-en" lang="en">How to take it</span><span class="l-bg" lang="bg">Употребата</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Cómo tomar Immunocal</span><span class="l-en" lang="en">How to take Immunocal</span><span class="l-bg" lang="bg">Как се приема Immunocal</span></h2>
+
+      <div class="stack" style="margin-top:1.25rem;max-width:52rem">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3><span class="l-es" lang="es">Un sobre al día</span><span class="l-en" lang="en">One sachet a day</span><span class="l-bg" lang="bg">По едно саше на ден</span></h3>
+            <p><span class="l-es" lang="es">Cada sobre viene dosificado individualmente y el envase indica tomarlo una vez al día. Sigue las instrucciones de preparación del envase y, si tienes cualquier duda, pregúntale a Vasil.</span><span class="l-en" lang="en">Each sachet comes individually dosed and the container says to take it once a day. Follow the preparation instructions on the container and ask Vasil if you have any questions.</span><span class="l-bg" lang="bg">Всяко саше е дозирано индивидуално, а опаковката указва прием веднъж на ден. Следвай инструкциите за приготвяне на опаковката и, ако имаш въпрос, попитай Васил.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3><span class="l-es" lang="es">Mezcla con 30 ml de bebida fría</span><span class="l-en" lang="en">Mix with 30 ml of cold drink</span><span class="l-bg" lang="bg">Разтвори в 30 ml студена напитка</span></h3>
+            <p><span class="l-es" lang="es">Según la ficha oficial del producto, mezcla el contenido de un sobre con 30 ml de tu bebida fría favorita: agua, leche o zumo.</span><span class="l-en" lang="en">According to the official product sheet, mix the contents of one sachet with 30 ml of your favourite cold drink: water, milk or juice.</span><span class="l-bg" lang="bg">Според официалната листовка на продукта разтвори съдържанието на едно саше в 30 ml от любимата ти студена напитка: вода, мляко или сок.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3><span class="l-es" lang="es">Bate, disuelve y bebe</span><span class="l-en" lang="en">Shake, dissolve and drink</span><span class="l-bg" lang="bg">Разбъркай, разтвори и изпий</span></h3>
+            <p><span class="l-es" lang="es">Bate o agita hasta que el polvo se disuelva por completo y bébelo recién hecho. Muchas personas lo toman por la mañana, integrado en su rutina diaria.</span><span class="l-en" lang="en">Shake or stir until the powder dissolves completely and drink it freshly made. Many people take it in the morning, as part of their daily routine.</span><span class="l-bg" lang="bg">Разбъркай или разтърси, докато прахът се разтвори напълно, и го изпий току-що приготвен. Много хора го приемат сутрин, като част от ежедневната си рутина.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="howto-visual" aria-hidden="true">
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="17" y="10" width="30" height="44" rx="4"/>
+            <path d="M17 19 h30" stroke-dasharray="3 4"/>
+            <path d="M23 42 c3 -2.5 6 -2.5 9 0 s6 2.5 9 0"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">El sobre</span><span class="l-en" lang="en">The sachet</span><span class="l-bg" lang="bg">Сашето</span></span>
+        </div>
+        <span class="howto-arrow">→</span>
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10 L42 10 L38.5 54 L25.5 54 Z"/>
+            <path d="M24.6 28 L39.4 28"/>
+            <rect x="26.5" y="33" width="9" height="9" rx="2"/>
+            <rect x="30" y="40" width="8" height="8" rx="2"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">30 ml de bebida fría</span><span class="l-en" lang="en">30 ml of cold drink</span><span class="l-bg" lang="bg">30 ml студена напитка</span></span>
+        </div>
+        <span class="howto-arrow">→</span>
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 24 h24 v24 a5 5 0 0 1 -5 5 h-14 a5 5 0 0 1 -5 -5 Z"/>
+            <path d="M44 10 L35 33"/>
+            <circle cx="33.5" cy="36" r="3.5"/>
+            <path d="M24 40 c2.5 -2 5 -2 7.5 0 s5 2 7.5 0"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">Bate y bebe</span><span class="l-en" lang="en">Shake and drink</span><span class="l-bg" lang="bg">Разбъркай и изпий</span></span>
+        </div>
+      </div>
+
+      <p class="footnote" style="text-align:center"><span class="l-es" lang="es">Instrucciones de mezcla según la ficha oficial del producto de Immunotec. Sigue siempre las instrucciones de preparación del envase.</span><span class="l-en" lang="en">Mixing instructions according to Immunotec's official product sheet. Always follow the preparation instructions on the container.</span><span class="l-bg" lang="bg">Инструкции за разбъркване според официалната листовка на продукта на Immunotec. Винаги следвай инструкциите за приготвяне на опаковката.</span></p>
     </div>
   </section>
 
