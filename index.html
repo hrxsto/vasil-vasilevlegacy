@@ -37,10 +37,17 @@
   muestra el sobrecito abierto
   (immunocal-abierto.jpg) junto al botón de compra y Nuestro equipo lleva la
   foto de reunión (equipo-immu.jpg) a la derecha del texto.
-  Retiradas las secciones "Vasil Vasilev te acompaña" y "Lo que conviene saber
-  antes de decidir": las advertencias viven en el pie y el resto del trabajo
-  se hace por contacto directo (WhatsApp, llamada o en persona).
--->
+   Retiradas las secciones "Vasil Vasilev te acompaña" y "Lo que conviene saber
+   antes de decidir": las advertencias viven en el pie y el resto del trabajo
+   se hace por contacto directo (WhatsApp, llamada o en persona).
+   Actualización (2026-11-27): sello de VasilevLegacy en la cabecera, nueva
+   sección "Cómo tomar Immunocal" tras la ciencia (pasos de mezcla según la
+   ficha oficial, sin promesas de salud), tarjeta de ciencia reordenada
+   (cifras y Dr. Gutman tras la cita de Montagnier), kickers redundantes
+   retirados (La ciencia, El equipo, Tú decides), "La presentación" renombrada
+   "Presentación corta", avatar del hero con más cuerpo visible y bio de
+   ¿Por qué Vasil? reescrita como anécdota (ozonoterapia en Colombia).
+ -->
 
 <html lang="es">
 <head>
@@ -102,10 +109,17 @@
   header{position:relative;z-index:10}
   header .container{
     display:flex;align-items:center;justify-content:flex-end;gap:.6rem;flex-wrap:wrap;
-    padding-top:.75rem;
+    padding-top:.75rem;padding-right:11rem;
+    position:relative;
   }
   .wordmark{font-family:"Montserrat",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.14em;color:var(--primary)}
   .header-note{font-size:.8rem;color:var(--muted-foreground)}
+  .brand-seal{position:absolute;top:.5rem;right:0;z-index:20}
+  .brand-seal img{height:9.375rem;width:9.375rem;display:block}
+  @media (max-width:48rem){
+    header .container{padding-right:1.25rem;padding-top:7.25rem}
+    .brand-seal img{height:6.25rem;width:6.25rem}
+  }
 
   /* barra superior y banda de degradado (estética de la intro) */
   .top-bar{position:relative;z-index:1;height:4px;background:var(--primary)}
@@ -240,6 +254,15 @@
   @media (max-width:30rem){
     .avatar{width:8rem;height:8rem}
   }
+  .avatar-clip{
+    display:block;width:9.5rem;height:9.5rem;border-radius:50%;
+    overflow:hidden;border:2px solid #fff;
+    box-shadow:0 4px 12px rgba(8,122,193,.20);
+  }
+  .avatar-zoom{width:118%;height:118%;transform:translateY(-15%) translateX(-10%);border:0;box-shadow:none;border-radius:0}
+  @media (max-width:30rem){
+    .avatar-clip{width:8rem;height:8rem}
+  }
   .attend-name{font-weight:700;color:var(--navy)}
   .attend-role{font-size:.85rem;color:var(--muted-foreground)}
   /* eyebrow de la intro, estilo Mauricio, solo dentro del hero */
@@ -295,6 +318,16 @@
     box-shadow:0 0 0 4px #fff;
   }
   .step h3{margin-bottom:.25rem}
+
+  /* cómo tomar: tira visual paso a paso */
+  .howto-visual{
+    display:flex;align-items:center;justify-content:center;
+    gap:1.4rem;flex-wrap:wrap;margin:1.75rem auto 0;
+  }
+  .howto-item{display:flex;flex-direction:column;align-items:center;gap:.45rem}
+  .howto-item svg{width:4.5rem;height:4.5rem;color:var(--primary)}
+  .howto-caption{font-size:.8rem;color:var(--muted-foreground);text-align:center;max-width:9rem}
+  .howto-arrow{color:var(--primary);opacity:.55;font-size:1.5rem;line-height:1;margin-bottom:1.3rem}
 
   /* producto */
   .product-img{
@@ -456,6 +489,9 @@
       <label class="lang-btn" for="lang-bg"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect y="6.67" width="30" height="6.66" fill="#00966E"/><rect y="13.33" width="30" height="6.67" fill="#D62612"/></svg><span>BG</span></label>
     </nav>
     <span class="wordmark">IMMUNOTEC</span>
+    <a class="brand-seal" href="https://vasilevlegacy.net" target="_blank" rel="noopener" title="VasilevLegacy">
+      <img src="vasilevlegacy-sello-transparente.svg" width="480" height="480" alt="VasilevLegacy">
+    </a>
   </div>
 </header>
 
@@ -490,7 +526,9 @@
       <div class="hero-intro">
         <span class="avatar-wrap">
           <span class="ping-ring" aria-hidden="true"></span>
-          <img class="avatar" src="avatar-vasil.jpg" width="512" height="512" alt="Vasil Vasilev">
+          <span class="avatar-clip">
+            <img class="avatar avatar-zoom" src="avatar-vasil.jpg" width="512" height="512" alt="Vasil Vasilev">
+          </span>
         </span>
         <div>
           <div class="attend-name"><span class="l-es" lang="es">Te atiende Vasil Vasilev</span><span class="l-en" lang="en">Vasil Vasilev will help you</span><span class="l-bg" lang="bg">При теб е Васил Василев</span></div>
@@ -566,7 +604,7 @@
   <!-- ============ VIDEO ============ -->
   <section>
     <div class="container">
-      <p class="kicker"><span class="l-es" lang="es">La presentación</span><span class="l-en" lang="en">The presentation</span><span class="l-bg" lang="bg">Презентацията</span></p>
+      <p class="kicker"><span class="l-es" lang="es">Presentación corta</span><span class="l-en" lang="en">Short presentation</span><span class="l-bg" lang="bg">Кратка презентация</span></p>
       <h2 class="reveal"><span class="l-es" lang="es">Míralo en pocos minutos</span><span class="l-en" lang="en">Watch it in a few minutes</span><span class="l-bg" lang="bg">Гледай го за няколко минути</span></h2>
 
       <div class="card" style="margin-top:1.25rem">
@@ -642,33 +680,9 @@
   <!-- ============ CIENCIA DEL GLUTATIÓN ============ -->
   <section>
     <div class="container">
-      <p class="kicker"><span class="l-es" lang="es">La ciencia</span><span class="l-en" lang="en">The science</span><span class="l-bg" lang="bg">Науката</span></p>
       <h2 class="reveal"><span class="l-es" lang="es">La ciencia del glutatión</span><span class="l-en" lang="en">The science of glutathione</span><span class="l-bg" lang="bg">Науката за глутатиона</span></h2>
 
       <div class="card" style="margin-top:1.25rem">
-        <div class="science-grid">
-          <div>
-            <p class="stats-lead"><span class="l-es" lang="es">Immunocal en cifras, según la presentación oficial de la compañía:</span><span class="l-en" lang="en">Immunocal in numbers, according to the company's official presentation:</span><span class="l-bg" lang="bg">Immunocal в цифри, според официалното представяне на компанията:</span></p>
-            <div class="stats">
-              <div class="stat"><span class="l-es" lang="es"><b>+500 M</b><small>porciones vendidas</small></span><span class="l-en" lang="en"><b>500M+</b><small>servings sold</small></span><span class="l-bg" lang="bg"><b>+500 млн.</b><small>продадени порции</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>Millones</b><small>de clientes felices</small></span><span class="l-en" lang="en"><b>Millions</b><small>of happy customers</small></span><span class="l-bg" lang="bg"><b>Милиони</b><small>доволни клиенти</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>+45</b><small>años de investigación</small></span><span class="l-en" lang="en"><b>45+</b><small>years of research</small></span><span class="l-bg" lang="bg"><b>+45</b><small>години изследвания</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>3</b><small>versiones diferentes</small></span><span class="l-en" lang="en"><b>3</b><small>different versions</small></span><span class="l-bg" lang="bg"><b>3</b><small>различни версии</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>23</b><small>estudios doble ciego</small></span><span class="l-en" lang="en"><b>23</b><small>double-blind studies</small></span><span class="l-bg" lang="bg"><b>23</b><small>проучвания с двойно слепяване</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>+85</b><small>estudios publicados</small></span><span class="l-en" lang="en"><b>85+</b><small>published studies</small></span><span class="l-bg" lang="bg"><b>+85</b><small>публикувани проучвания</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>+400</b><small>artículos de sus creadores</small></span><span class="l-en" lang="en"><b>400+</b><small>articles by its creators</small></span><span class="l-bg" lang="bg"><b>+400</b><small>статии на създателите му</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>+125</b><small>instituciones involucradas</small></span><span class="l-en" lang="en"><b>125+</b><small>institutions involved</small></span><span class="l-bg" lang="bg"><b>+125</b><small>ангажирани институции</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>78</b><small>patentes internacionales</small></span><span class="l-en" lang="en"><b>78</b><small>international patents</small></span><span class="l-bg" lang="bg"><b>78</b><small>международни патента</small></span></div>
-              <div class="stat"><span class="l-es" lang="es"><b>+70</b><small>atletas patrocinados</small></span><span class="l-en" lang="en"><b>70+</b><small>sponsored athletes</small></span><span class="l-bg" lang="bg"><b>+70</b><small>спонсорирани спортисти</small></span></div>
-            </div>
-            <p class="footnote"><span class="l-es" lang="es">Pruebas y certificaciones de terceros: Informed Sport y Clean Label. Immunocal figura en los libros de referencia médica PDR (EE. UU.) y CPS (Canadá).</span><span class="l-en" lang="en">Third-party testing and certifications: Informed Sport and Clean Label. Immunocal is listed in the PDR (U.S.) and CPS (Canada) medical reference books.</span><span class="l-bg" lang="bg">Независими изпитвания и сертификации: Informed Sport и Clean Label. Immunocal е включен в медицинските справочници PDR (САЩ) и CPS (Канада).</span></p>
-          </div>
-          <figure class="gutman">
-            <img src="dr-gutman.jpg" width="901" height="835" alt="Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec" loading="lazy" decoding="async">
-            <figcaption><span class="l-es" lang="es">Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec</span><span class="l-en" lang="en">Dr. Jimmy Gutman, Chairman of Immunotec's Scientific Advisory Board</span><span class="l-bg" lang="bg">Д-р Джимъти Гътман, председател на Научния консултативен съвет на Immunotec</span></figcaption>
-          </figure>
-        </div>
-
         <p><span class="l-es" lang="es">
           Tu cuerpo produce glutatión a partir de tres aminoácidos: glicina, glutamato
           y cisteína. Immunocal aporta Cisteína Enlazada®, un precursor exclusivo que
@@ -696,7 +710,96 @@
           <p><span class="l-es" lang="es">"El glutatión es de gran importancia en la actividad antioxidante celular, e Immunocal funciona como un sistema de administración de cisteína que puede mejorar la síntesis de glutatión..."</span><span class="l-en" lang="en">"Glutathione is of great importance in cellular antioxidant activity, and Immunocal functions as a cysteine delivery system that can improve glutathione synthesis..."</span><span class="l-bg" lang="bg">„Глутатионът е от голямо значение за клетъчната антиоксидантна активност, а Immunocal функционира като система за доставяне на цистеин, която може да подобри синтеза на глутатион..."</span></p>
           <p class="footnote" style="margin-top:.4rem"><span class="l-es" lang="es">— Dr. Luc Montagnier, Premio Nobel de Fisiología o Medicina 2008. Cita incluida en la presentación oficial de Immunotec.</span><span class="l-en" lang="en">— Dr. Luc Montagnier, Nobel Prize in Physiology or Medicine 2008. Quote included in Immunotec's official presentation.</span><span class="l-bg" lang="bg">— Д-р Люк Монтание, Нобелова награда за физиология или медицина 2008. Цитат от официалното представяне на Immunotec.</span></p>
         </blockquote>
+
+        <div class="science-grid" style="margin-top:1.5rem">
+          <div>
+            <p class="stats-lead"><span class="l-es" lang="es">Immunocal en cifras, según la presentación oficial de la compañía:</span><span class="l-en" lang="en">Immunocal in numbers, according to the company's official presentation:</span><span class="l-bg" lang="bg">Immunocal в цифри, според официалното представяне на компанията:</span></p>
+            <div class="stats">
+              <div class="stat"><span class="l-es" lang="es"><b>+500 M</b><small>porciones vendidas</small></span><span class="l-en" lang="en"><b>500M+</b><small>servings sold</small></span><span class="l-bg" lang="bg"><b>+500 млн.</b><small>продадени порции</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>Millones</b><small>de clientes felices</small></span><span class="l-en" lang="en"><b>Millions</b><small>of happy customers</small></span><span class="l-bg" lang="bg"><b>Милиони</b><small>доволни клиенти</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+45</b><small>años de investigación</small></span><span class="l-en" lang="en"><b>45+</b><small>years of research</small></span><span class="l-bg" lang="bg"><b>+45</b><small>години изследвания</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>3</b><small>versiones diferentes</small></span><span class="l-en" lang="en"><b>3</b><small>different versions</small></span><span class="l-bg" lang="bg"><b>3</b><small>различни версии</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>23</b><small>estudios doble ciego</small></span><span class="l-en" lang="en"><b>23</b><small>double-blind studies</small></span><span class="l-bg" lang="bg"><b>23</b><small>проучвания с двойно слепяване</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+85</b><small>estudios publicados</small></span><span class="l-en" lang="en"><b>85+</b><small>published studies</small></span><span class="l-bg" lang="bg"><b>+85</b><small>публикувани проучвания</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+400</b><small>artículos de sus creadores</small></span><span class="l-en" lang="en"><b>400+</b><small>articles by its creators</small></span><span class="l-bg" lang="bg"><b>+400</b><small>статии на създателите му</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+125</b><small>instituciones involucradas</small></span><span class="l-en" lang="en"><b>125+</b><small>institutions involved</small></span><span class="l-bg" lang="bg"><b>+125</b><small>ангажирани институции</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>78</b><small>patentes internacionales</small></span><span class="l-en" lang="en"><b>78</b><small>international patents</small></span><span class="l-bg" lang="bg"><b>78</b><small>международни патента</small></span></div>
+              <div class="stat"><span class="l-es" lang="es"><b>+70</b><small>atletas patrocinados</small></span><span class="l-en" lang="en"><b>70+</b><small>sponsored athletes</small></span><span class="l-bg" lang="bg"><b>+70</b><small>спонсорирани спортисти</small></span></div>
+            </div>
+            <p class="footnote"><span class="l-es" lang="es">Pruebas y certificaciones de terceros: Informed Sport y Clean Label. Immunocal figura en los libros de referencia médica PDR (EE. UU.) y CPS (Canadá).</span><span class="l-en" lang="en">Third-party testing and certifications: Informed Sport and Clean Label. Immunocal is listed in the PDR (U.S.) and CPS (Canada) medical reference books.</span><span class="l-bg" lang="bg">Независими изпитвания и сертификации: Informed Sport и Clean Label. Immunocal е включен в медицинските справочници PDR (САЩ) и CPS (Канада).</span></p>
+          </div>
+          <figure class="gutman">
+            <img src="dr-gutman.jpg" width="901" height="835" alt="Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec" loading="lazy" decoding="async">
+            <figcaption><span class="l-es" lang="es">Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec</span><span class="l-en" lang="en">Dr. Jimmy Gutman, Chairman of Immunotec's Scientific Advisory Board</span><span class="l-bg" lang="bg">Д-р Джимъти Гътман, председател на Научния консултативен съвет на Immunotec</span></figcaption>
+          </figure>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO TOMAR ============ -->
+  <section>
+    <div class="container">
+      <p class="kicker"><span class="l-es" lang="es">El uso</span><span class="l-en" lang="en">How to take it</span><span class="l-bg" lang="bg">Употребата</span></p>
+      <h2 class="reveal"><span class="l-es" lang="es">Cómo tomar Immunocal</span><span class="l-en" lang="en">How to take Immunocal</span><span class="l-bg" lang="bg">Как се приема Immunocal</span></h2>
+
+      <div class="stack" style="margin-top:1.25rem;max-width:52rem">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3><span class="l-es" lang="es">Un sobre al día</span><span class="l-en" lang="en">One sachet a day</span><span class="l-bg" lang="bg">По едно саше на ден</span></h3>
+            <p><span class="l-es" lang="es">Cada sobre viene dosificado individualmente y el envase indica tomarlo una vez al día. Sigue las instrucciones de preparación del envase y, si tienes cualquier duda, pregúntale a Vasil.</span><span class="l-en" lang="en">Each sachet comes individually dosed and the container says to take it once a day. Follow the preparation instructions on the container and ask Vasil if you have any questions.</span><span class="l-bg" lang="bg">Всяко саше е дозирано индивидуално, а опаковката указва прием веднъж на ден. Следвай инструкциите за приготвяне на опаковката и, ако имаш въпрос, попитай Васил.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3><span class="l-es" lang="es">Mezcla con 30 ml de bebida fría</span><span class="l-en" lang="en">Mix with 30 ml of cold drink</span><span class="l-bg" lang="bg">Разтвори в 30 ml студена напитка</span></h3>
+            <p><span class="l-es" lang="es">Según la ficha oficial del producto, mezcla el contenido de un sobre con 30 ml de tu bebida fría favorita: agua, leche o zumo.</span><span class="l-en" lang="en">According to the official product sheet, mix the contents of one sachet with 30 ml of your favourite cold drink: water, milk or juice.</span><span class="l-bg" lang="bg">Според официалната листовка на продукта разтвори съдържанието на едно саше в 30 ml от любимата ти студена напитка: вода, мляко или сок.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3><span class="l-es" lang="es">Bate, disuelve y bebe</span><span class="l-en" lang="en">Shake, dissolve and drink</span><span class="l-bg" lang="bg">Разбъркай, разтвори и изпий</span></h3>
+            <p><span class="l-es" lang="es">Bate o agita hasta que el polvo se disuelva por completo y bébelo recién hecho. Muchas personas lo toman por la mañana, integrado en su rutina diaria.</span><span class="l-en" lang="en">Shake or stir until the powder dissolves completely and drink it freshly made. Many people take it in the morning, as part of their daily routine.</span><span class="l-bg" lang="bg">Разбъркай или разтърси, докато прахът се разтвори напълно, и го изпий току-що приготвен. Много хора го приемат сутрин, като част от ежедневната си рутина.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="howto-visual" aria-hidden="true">
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="17" y="10" width="30" height="44" rx="4"/>
+            <path d="M17 19 h30" stroke-dasharray="3 4"/>
+            <path d="M23 42 c3 -2.5 6 -2.5 9 0 s6 2.5 9 0"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">El sobre</span><span class="l-en" lang="en">The sachet</span><span class="l-bg" lang="bg">Сашето</span></span>
+        </div>
+        <span class="howto-arrow">→</span>
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10 L42 10 L38.5 54 L25.5 54 Z"/>
+            <path d="M24.6 28 L39.4 28"/>
+            <rect x="26.5" y="33" width="9" height="9" rx="2"/>
+            <rect x="30" y="40" width="8" height="8" rx="2"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">30 ml de bebida fría</span><span class="l-en" lang="en">30 ml of cold drink</span><span class="l-bg" lang="bg">30 ml студена напитка</span></span>
+        </div>
+        <span class="howto-arrow">→</span>
+        <div class="howto-item">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 24 h24 v24 a5 5 0 0 1 -5 5 h-14 a5 5 0 0 1 -5 -5 Z"/>
+            <path d="M44 10 L35 33"/>
+            <circle cx="33.5" cy="36" r="3.5"/>
+            <path d="M24 40 c2.5 -2 5 -2 7.5 0 s5 2 7.5 0"/>
+          </svg>
+          <span class="howto-caption"><span class="l-es" lang="es">Bate y bebe</span><span class="l-en" lang="en">Shake and drink</span><span class="l-bg" lang="bg">Разбъркай и изпий</span></span>
+        </div>
+      </div>
+
+      <p class="footnote" style="text-align:center"><span class="l-es" lang="es">Instrucciones de mezcla según la ficha oficial del producto de Immunotec. Sigue siempre las instrucciones de preparación del envase.</span><span class="l-en" lang="en">Mixing instructions according to Immunotec's official product sheet. Always follow the preparation instructions on the container.</span><span class="l-bg" lang="bg">Инструкции за разбъркване според официалната листовка на продукта на Immunotec. Винаги следвай инструкциите за приготвяне на опаковката.</span></p>
     </div>
   </section>
 
@@ -709,22 +812,40 @@
         <div>
       <p style="margin:0 0 .7rem"><span class="l-es" lang="es">
         Vasil se desarrolla dentro de los ecosistemas corporativos multinacionales
-        de Immunotec y de LifeWave. Conoció este negocio a través de contactos que
-        hizo en sus viajes a América, mientras buscaba cómo potenciar el mercado
-        español, y hoy uno de sus focos es abrir próximamente el mercado de
-        Immunotec en Bulgaria.
+        de Immunotec y de LifeWave. Descubrió este negocio al conocer a una de las
+        eminencias de la ozonoterapia en Colombia, mientras buscaba un tratamiento
+        alternativo para unas complicaciones generales de salud de su pareja.
+        Immunocal fue precisamente el suplemento que les recomendó probar para
+        potenciar los efectos de la terapia con ozono, y así se formó, para él,
+        un testimonio más de sus efectos regenerativos a nivel inmunológico y de
+        reparación de tejidos. Al ofrecérsele la oportunidad de desarrollarse
+        económicamente con Immunotec, Vasil buscó cómo potenciar el mercado
+        español de la compañía y uno de sus focos es abrir próximamente el mercado
+        de Immunotec en Bulgaria.
       </span><span class="l-en" lang="en">
         Vasil develops himself within the multinational corporate ecosystems of
-        Immunotec and LifeWave. He was introduced to this business through contacts
-        he made on his trips to America, while looking for ways to strengthen the
-        Spanish market, and today one of his focuses is opening the Immunotec market
-        in Bulgaria soon.
+        Immunotec and LifeWave. He discovered this business when he met one of the
+        leading figures in ozone therapy in Colombia, while looking for an
+        alternative treatment for some general health complications his partner
+        was facing. Immunocal was precisely the supplement they were recommended
+        to try to boost the effects of the ozone therapy, and for him it became
+        one more testimony of its regenerative effects on the immune system and
+        on tissue repair. When he was offered the opportunity to develop
+        financially with Immunotec, Vasil looked for ways to strengthen the
+        company's Spanish market, and today one of his focuses is opening the
+        Immunotec market in Bulgaria soon.
       </span><span class="l-bg" lang="bg">
         Васил се развива в мултинационалните корпоративни екосистеми на Immunotec
-        и LifeWave. Той се запозна с този бизнес чрез контакти, които направи по
-        време на своите пътувания до Америка, докато търсеше как да укрепи
-        испанския пазар, и днес един от фокусите му е скоро да отвори пазара на
-        Immunotec в България.
+        и LifeWave. Той откри този бизнес, когато се запозна с една от големите
+        фигури в озонотерапията в Колумбия, докато търсеше алтернативно лечение
+        за някои общи здравословни усложнения на партньорката си. Именно
+        Immunocal беше добавката, която им препоръчаха да опитат, за да усилят
+        ефектите на озонотерапията — и така за него се оформи още едно
+        свидетелство за регенеративните ефекти на Immunocal върху имунната
+        система и върху възстановяването на тъканите. Когато му се появи
+        възможността да се развива финансово с Immunotec, Васил потърси как да
+        укрепи испанския пазар на компанията, а днес един от фокусите му е скоро
+        да отвори пазара на Immunotec в България.
       </span></p>
       <p style="margin:0 0 .7rem"><span class="l-es" lang="es">
         Su compromiso con su equipo va más allá del negocio: atiende con dedicación
@@ -740,20 +861,20 @@
         да се развива — с непрекъснато обучение и нагласа за постоянно развитие.
       </span></p>
       <p style="margin:0 0 .7rem"><span class="l-es" lang="es">
-        Y conoce de primera mano historias reales de su círculo: personas cercanas
-        que le han contado, en primera persona, cómo Immunocal les acompaña en sus
-        retos de salud y bienestar. Historias que le motivan a seguir compartiendo
+        Y esa no es la única historia: personas cercanas de su círculo le han
+        contado, en primera persona, cómo Immunocal les acompaña en sus retos de
+        salud y bienestar. Historias que le motivan a seguir compartiendo
         el producto con seriedad y responsabilidad.
       </span><span class="l-en" lang="en">
-        He also knows real stories from his circle first-hand: people close to him
-        have told him how Immunocal supports them in their health and wellness
+        And that is not the only story: people close to him have told him,
+        first-hand, how Immunocal supports them in their health and wellness
         challenges. Stories that motivate him to keep sharing the product seriously
         and responsibly.
       </span><span class="l-bg" lang="bg">
-        От обкръжението му излизат реални истории: близки хора са му разказвали
-        как Immunocal ги придружава в предизвикателствата, свързани със здравето
-        и благополучието им. Истории, които го мотивират да споделя продукта
-        сериозно и отговорно.
+        И това не е единствената история: близки хора от обкръжението му са му
+        разказвали от първо лице как Immunocal ги придружава в
+        предизвикателствата, свързани със здравето и благополучието им. Истории,
+        които го мотивират да споделя продукта сериозно и отговорно.
       </span></p>
         </div>
         <figure class="gutman vasil-fit">
@@ -766,7 +887,6 @@
   <!-- ============ EQUIPO ============ -->
   <section>
     <div class="container">
-      <p class="kicker"><span class="l-es" lang="es">El equipo</span><span class="l-en" lang="en">The team</span><span class="l-bg" lang="bg">Екипът</span></p>
       <h2 class="reveal"><span class="l-es" lang="es">Nuestro equipo</span><span class="l-en" lang="en">Our team</span><span class="l-bg" lang="bg">Нашият екип</span></h2>
       <div class="science-grid" style="margin-top:1.1rem">
         <div>
@@ -821,7 +941,6 @@
   <!-- ============ DOS CAMINOS ============ -->
   <section>
     <div class="container">
-      <p class="kicker"><span class="l-es" lang="es">Tú decides</span><span class="l-en" lang="en">You decide</span><span class="l-bg" lang="bg">Ти решаваш</span></p>
       <h2 class="reveal"><span class="l-es" lang="es">Tú decides cómo empezar</span><span class="l-en" lang="en">You decide how to start</span><span class="l-bg" lang="bg">Ти решаваш как да започнеш</span></h2>
 <p style="margin-top:.5rem;max-width:46rem"><span class="l-es" lang="es">
         Unirte a Immunotec como consultor independiente es empezar tu propio negocio con el respaldo de una compañía consolidada: formación gratuita, sitio web personal profesional y centro de negocios, descuento de consultor en todo el catálogo y el seguimiento cercano de un equipo internacional. Y el momento es ahora: el mercado español se fortalece y el mercado de Bulgaria se abrirá pronto.
