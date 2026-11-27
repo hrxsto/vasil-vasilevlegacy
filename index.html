@@ -323,6 +323,19 @@
     box-shadow:0 0 0 4px #fff;
   }
   .step h3{margin-bottom:.25rem}
+  .arrow-down{width:1.4rem;height:1.4rem;color:var(--primary);vertical-align:-.3rem;display:inline-block;margin-left:.3rem}
+
+  /* nuestra ciencia: tarjeta envolvente */
+  .science-card{
+    background:var(--muted);
+    border:1px solid var(--border);
+    border-radius:1rem;
+    padding:1.25rem 1.5rem;
+    max-width:42rem;
+    margin:0 auto;
+  }
+  .science-title-row{display:flex;align-items:center;justify-content:center;gap:1.2rem}
+  .science-rule{flex:0 1 4.5rem;height:1px;background:var(--border)}
 
   /* producto */
   .product-img{
@@ -355,6 +368,7 @@
   .stat{background:var(--accent);border-radius:1rem;padding:.85rem .7rem;text-align:center}
   .stat b{display:block;font-family:"Montserrat","Inter",sans-serif;font-size:1.35rem;font-weight:800;color:var(--primary);line-height:1.15}
   .stat small{display:block;font-size:.74rem;color:var(--muted-foreground);margin-top:.15rem}
+  .stat-wide{grid-column:span 2}
   .gutman{margin:0}
   .gutman img{width:100%;height:auto;border-radius:1rem;border:1px solid var(--border);display:block}
   .gutman figcaption{font-size:.78rem;color:var(--muted-foreground);margin-top:.5rem;text-align:center}
@@ -527,7 +541,6 @@
         </span>
         <div>
           <div class="attend-name"><span class="l-es" lang="es">Te atiende Vasil Vasilev</span><span class="l-en" lang="en">Vasil Vasilev will help you</span><span class="l-bg" lang="bg">При теб е Васил Василев</span></div>
-          <div class="attend-role"><span class="l-es" lang="es">Consultor Independiente de Immunotec</span><span class="l-en" lang="en">Independent Immunotec Consultant</span><span class="l-bg" lang="bg">Независим консултант на Immunotec</span></div>
         </div>
       </div>
 
@@ -654,11 +667,11 @@
         <div class="step">
           <div class="step-num">2</div>
           <div>
-            <h3><span class="l-es" lang="es">Habla con Vasil</span><span class="l-en" lang="en">Talk to Vasil</span><span class="l-bg" lang="bg">Говори с Васил</span></h3>
-            <p><span class="l-es" lang="es">Cuéntale qué te interesa. Vasil Vasilev resuelve tus dudas y te indica
-            cómo pedirlo. Una conversación abierta, de acuerdo a tus necesidades.</span><span class="l-en" lang="en">Tell him what interests you. Vasil Vasilev answers your questions and
-            shows you how to order it. An open conversation, based on your needs.</span><span class="l-bg" lang="bg">Разкажи какво те интересува. Васил Василев отговаря на въпросите ти и ти
-            показва как да го поръчаш. Отворен разговор, според твоите нужди.</span></p>
+            <h3><span class="l-es" lang="es">Envíame un mensaje</span><span class="l-en" lang="en">Send me a message</span><span class="l-bg" lang="bg">Изпрати ми съобщение</span></h3>
+            <p><span class="l-es" lang="es">Cuéntame qué te interesa. Resuelvo tus dudas y te indico cómo pedirlo.
+            Una conversación abierta, de acuerdo a tus necesidades.</span><span class="l-en" lang="en">Tell me what interests you. I answer your questions and show you how to
+            order it. An open conversation, based on your needs.</span><span class="l-bg" lang="bg">Разкажи ми какво те интересува. Аз отговарям на въпросите ти и ти
+            показвам как да го поръчаш. Отворен разговор, според твоите нужди.</span></p>
           </div>
         </div>
         <div class="step">
@@ -666,9 +679,9 @@
           <div>
             <h3><span class="l-es" lang="es">Tú decides cómo empezar</span><span class="l-en" lang="en">You decide how to start</span><span class="l-bg" lang="bg">Ти решаваш как да започнеш</span></h3>
             <p><span class="l-es" lang="es">Pides Immunocal como cliente o conoces cómo funciona el negocio.
-            Cualquiera de los dos caminos empieza por esta presentación corta abajo:</span><span class="l-en" lang="en">You order Immunocal as a customer or learn how the business works.
-            Either path starts with this short presentation below:</span><span class="l-bg" lang="bg">Поръчваш Immunocal като клиент или научаваш как работи бизнесът.
-            И двата пътя започват с тази кратка презентация по-долу:</span></p>
+            Cualquiera de los dos caminos empieza por esta presentación que te dejo a continuación:</span><span class="l-en" lang="en">You order Immunocal as a customer or learn how the business works.
+            Either path starts with the short presentation I leave you below:</span><span class="l-bg" lang="bg">Поръчваш Immunocal като клиент или научаваш как работи бизнесът.
+            И двата пътя започват с кратката презентация, която ти оставям по-долу:</span> <svg class="arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 v14 M6 13 l6 6 6 -6"/></svg></p>
           </div>
         </div>
       </div>
@@ -717,33 +730,10 @@
         </span><span class="l-bg" lang="bg">
           Изображение на официалната опаковка на Immunocal (на английски).
         </span></p>
-        <p class="path-tag"><span class="l-es" lang="es">Suplemento alimenticio</span><span class="l-en" lang="en">Dietary supplement</span><span class="l-bg" lang="bg">Хранителна добавка</span></p>
-        <h3 style="margin:.2rem 0 .5rem;font-size:1.3rem">Immunocal</h3>
 
-        <p><span class="l-es" lang="es">
-          Proteína del suero de la leche de vaca, aislada, que se mezcla con agua,
-          leche o zumo y forma parte de tu día a día. La proteína es un nutriente
-          esencial: tu cuerpo la usa para construir y mantener la masa muscular.
-        </span><span class="l-en" lang="en">
-          Isolated whey protein from cow's milk that mixes with water, milk or juice
-          and becomes part of your daily routine. Protein is an essential nutrient:
-          your body uses it to build and maintain muscle mass.
-        </span><span class="l-bg" lang="bg">
-          Изолиран протеин от суроватката на краве мляко, който се смесва с вода,
-          мляко или сок и става част от ежедневието ти. Протеинът е основно
-          хранително вещество: тялото го използва, за да изгражда и поддържа
-          мускулната маса.
-        </span></p>
-
-        <div class="chips">
-          <span class="chip"><span class="l-es" lang="es">Proteína de suero de leche de vaca</span><span class="l-en" lang="en">Cow's milk whey protein</span><span class="l-bg" lang="bg">Протеин от суроватка на краве мляко</span></span>
-          <span class="chip"><span class="l-es" lang="es">Se mezcla con líquidos</span><span class="l-en" lang="en">Mixes with liquids</span><span class="l-bg" lang="bg">Смесва се с течности</span></span>
-          <span class="chip"><span class="l-es" lang="es">Uso diario</span><span class="l-en" lang="en">Daily use</span><span class="l-bg" lang="bg">Ежедневна употреба</span></span>
-        </div>
-
-        <img class="product-img" style="margin-top:.9rem" src="certificaciones-immunocal.png" width="1083" height="202" alt="Certificaciones de Immunocal: sello de garantía Immunotec, Kosher UD, Informed Sport, Clean Label Project, más de 25 años de investigación y sin gluten" loading="lazy" decoding="async">
         <p class="path-tag" style="margin-top:1.4rem"><span class="l-es" lang="es">Cómo tomarlo</span><span class="l-en" lang="en">How to take it</span><span class="l-bg" lang="bg">Как се приема</span></p>
-        <p style="margin:0"><span class="l-es" lang="es">Mezcla el contenido de un sobre con agua fría y, después, combínalo con el zumo, el yogur o la bebida que prefieras. Tómalo una vez al día, según las instrucciones de preparación del envase; si tienes cualquier duda, pregúntale a Vasil.</span><span class="l-en" lang="en">Mix the contents of one sachet with cold water and then combine it with the juice, yogurt or drink of your choice. Take it once a day, following the preparation instructions on the container; if you have any questions, ask Vasil.</span><span class="l-bg" lang="bg">Разтвори съдържанието на едно саше в студена вода и след това го комбинирай с сок, кисело мляко или напитката, която предпочиташ. Приемай го веднъж на ден, според инструкциите за приготвяне на опаковката; ако имаш въпрос, попитай Васил.</span></p>
+        <p style="margin:0"><span class="l-es" lang="es">Immunocal es un suplemento alimenticio de Immunotec: proteína del suero de la leche de vaca, aislada, que se mezcla con agua, leche o zumo y forma parte del día a día; la proteína es un nutriente esencial que tu cuerpo usa para construir y mantener la masa muscular.</span><span class="l-en" lang="en">Immunocal is a dietary supplement by Immunotec: isolated whey protein from cow's milk that mixes with water, milk or juice and becomes part of your daily routine; protein is an essential nutrient your body uses to build and maintain muscle mass.</span><span class="l-bg" lang="bg">Immunocal е хранителна добавка на Immunotec: изолиран протеин от суроватката на краве мляко, който се смесва с вода, мляко или сок и става част от ежедневието; протеинът е основно хранително вещество, с което тялото изгражда и поддържа мускулната маса.</span></p>
+        <p style="margin:.6rem 0 0"><span class="l-es" lang="es">Para tomarlo, mezcla el contenido de un sobre con agua fría y, después, combínalo con el zumo, el yogur o la bebida que prefieras, una vez al día y según las instrucciones de preparación del envase. Si tienes cualquier duda, pregúntame.</span><span class="l-en" lang="en">To take it, mix the contents of one sachet with cold water and then combine it with the juice, yogurt or drink of your choice, once a day and following the preparation instructions on the container. If you have any questions, ask me.</span><span class="l-bg" lang="bg">За приема му разтвори съдържанието на едно саше в студена вода и след това го комбинирай с сок, кисело мляко или напитката, която предпочиташ — веднъж на ден, според инструкциите за приготвяне на опаковката. Ако имаш въпрос, попитай ме.</span></p>
       </div>
     </div>
   </section>
@@ -756,16 +746,21 @@
       <div class="card" style="margin-top:1.25rem">
         <p><span class="l-es" lang="es">
           Tu cuerpo produce glutatión a partir de tres aminoácidos: glicina, glutamato
-          y cisteína. Immunocal aporta Cisteína Enlazada®, un precursor exclusivo que
-          tu cuerpo utiliza para producir glutatión por sí mismo.
+          y cisteína. Immunocal aporta <b>Cisteína Enlazada®</b>, un precursor exclusivo
+          que tu cuerpo utiliza para producir glutatión por sí mismo. Esta patente es
+          precisamente la que marca la diferencia de resultados en comparación con
+          otras marcas similares.
         </span><span class="l-en" lang="en">
           Your body makes glutathione from three amino acids: glycine, glutamate and
-          cysteine. Immunocal provides Bonded Cysteine® (Cisteína Enlazada®), an
-          exclusive precursor your body uses to produce glutathione on its own.*
+          cysteine. Immunocal provides <b>Bonded Cysteine®</b> (Cisteína Enlazada®), an
+          exclusive precursor your body uses to produce glutathione on its own.* This
+          patent is precisely what makes the difference in results compared with
+          other similar brands.
         </span><span class="l-bg" lang="bg">
           Тялото ти произвежда глутатион от три аминокиселини: глицин, глутамат и
-          цистеин. Immunocal осигурява Cisteína Enlazada® (свързан цистеин) — ексклузивен
-          прекурсор, който тялото ти използва, за да произвежда сам глутатион.*
+          цистеин. Immunocal осигурява <b>Cisteína Enlazada®</b> (свързан цистеин) — ексклузивен
+          прекурсор, който тялото ти използва, за да произвежда сам глутатион.* Именно
+          този патент прави разликата в резултатите в сравнение с други подобни марки.
         </span></p>
 
         <img class="product-img" style="margin-top:.8rem" src="science-glutathione.jpg" width="1600" height="1215" alt="Esquema 'The science of Glutathione' de la presentación oficial de Immunotec: la célula produce glutatión a partir de glicina, glutamato y cisteína" loading="lazy" decoding="async">
@@ -779,7 +774,7 @@
 
         <blockquote>
           <p><span class="l-es" lang="es">"El glutatión es de gran importancia en la actividad antioxidante celular, e Immunocal funciona como un sistema de administración de cisteína que puede mejorar la síntesis de glutatión..."</span><span class="l-en" lang="en">"Glutathione is of great importance in cellular antioxidant activity, and Immunocal functions as a cysteine delivery system that can improve glutathione synthesis..."</span><span class="l-bg" lang="bg">„Глутатионът е от голямо значение за клетъчната антиоксидантна активност, а Immunocal функционира като система за доставяне на цистеин, която може да подобри синтеза на глутатион..."</span></p>
-          <p class="footnote" style="margin-top:.4rem"><span class="l-es" lang="es">— Dr. Luc Montagnier, Premio Nobel de Fisiología o Medicina 2008. Descubridor del VIH, virus causante del SIDA.</span><span class="l-en" lang="en">— Dr. Luc Montagnier, Nobel Prize in Physiology or Medicine 2008. Discoverer of HIV, the virus that causes AIDS.</span><span class="l-bg" lang="bg">— Д-р Люк Монтание, Нобелова награда за физиология или медицина 2008. Откривател на HIV, вируса, причиняващ СПИН.</span></p>
+          <p class="footnote" style="margin-top:.4rem"><span class="l-es" lang="es">— Dr. Luc Montagnier, Premio Nobel de Fisiología o Medicina 2008. Descubridor del VIH, virus causante del SIDA. Cita de: Montagnier L, Olivier R, Pasquier C, eds. <em>Oxidative Stress in Cancer, AIDS and Neurodegenerative Diseases</em>. Nueva York: Marcel Dekker; 1998, artículo 42.</span><span class="l-en" lang="en">— Dr. Luc Montagnier, Nobel Prize in Physiology or Medicine 2008. Discoverer of HIV, the virus that causes AIDS. Quote from: Montagnier L, Olivier R, Pasquier C, eds. <em>Oxidative Stress in Cancer, AIDS and Neurodegenerative Diseases</em>. New York: Marcel Dekker; 1998, article 42.</span><span class="l-bg" lang="bg">— Д-р Люк Монтание, Нобелова награда за физиология или медицина 2008. Откривател на HIV, вируса, причиняващ СПИН. Цитат от: Montagnier L, Olivier R, Pasquier C, eds. <em>Oxidative Stress in Cancer, AIDS and Neurodegenerative Diseases</em>. Ню Йорк: Marcel Dekker; 1998, статия 42.</span></p>
         </blockquote>
 
         <div class="science-grid" style="margin-top:1.5rem">
@@ -796,13 +791,15 @@
               <div class="stat"><span class="l-es" lang="es"><b>+125</b><small>instituciones involucradas</small></span><span class="l-en" lang="en"><b>125+</b><small>institutions involved</small></span><span class="l-bg" lang="bg"><b>+125</b><small>ангажирани институции</small></span></div>
               <div class="stat"><span class="l-es" lang="es"><b>78</b><small>patentes internacionales</small></span><span class="l-en" lang="en"><b>78</b><small>international patents</small></span><span class="l-bg" lang="bg"><b>78</b><small>международни патента</small></span></div>
               <div class="stat"><span class="l-es" lang="es"><b>+70</b><small>atletas patrocinados</small></span><span class="l-en" lang="en"><b>70+</b><small>sponsored athletes</small></span><span class="l-bg" lang="bg"><b>+70</b><small>спонсорирани спортисти</small></span></div>
+              <div class="stat stat-wide"><span class="l-es" lang="es"><b>Pruebas de terceros</b><small>Informed Sport y Clean Label</small></span><span class="l-en" lang="en"><b>Third-party testing</b><small>Informed Sport and Clean Label</small></span><span class="l-bg" lang="bg"><b>Независими изпитвания</b><small>Informed Sport и Clean Label</small></span></div>
+              <div class="stat stat-wide"><span class="l-es" lang="es"><b>PDR y CPS</b><small>Libros de referencia médica (EE. UU. y Canadá)</small></span><span class="l-en" lang="en"><b>PDR and CPS</b><small>Medical reference books (U.S. and Canada)</small></span><span class="l-bg" lang="bg"><b>PDR и CPS</b><small>Медицински справочници (САЩ и Канада)</small></span></div>
             </div>
-            <p class="footnote"><span class="l-es" lang="es">Pruebas y certificaciones de terceros: Informed Sport y Clean Label. Immunocal figura en los libros de referencia médica PDR (EE. UU.) y CPS (Canadá).</span><span class="l-en" lang="en">Third-party testing and certifications: Informed Sport and Clean Label. Immunocal is listed in the PDR (U.S.) and CPS (Canada) medical reference books.</span><span class="l-bg" lang="bg">Независими изпитвания и сертификации: Informed Sport и Clean Label. Immunocal е включен в медицинските справочници PDR (САЩ) и CPS (Канада).</span></p>
           </div>
           <figure class="gutman">
             <img src="dr-gutman.jpg" width="901" height="835" alt="Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec" loading="lazy" decoding="async">
             <figcaption><span class="l-es" lang="es">Dr. Jimmy Gutman, Presidente del Consejo Asesor Científico de Immunotec</span><span class="l-en" lang="en">Dr. Jimmy Gutman, Chairman of Immunotec's Scientific Advisory Board</span><span class="l-bg" lang="bg">Д-р Джимъти Гътман, председател на Научния консултативен съвет на Immunotec</span></figcaption>
           </figure>
+          <img class="product-img" style="margin-top:.9rem" src="certificaciones-immunocal.png" width="1083" height="202" alt="Certificaciones de Immunocal: sello de garantía Immunotec, Kosher UD, Informed Sport, Clean Label Project, más de 25 años de investigación y Gluten free" loading="lazy" decoding="async">
         </div>
 
       </div>
@@ -891,7 +888,7 @@
           Vasil Vasilev supports you before and after your order.</span><span class="l-bg" lang="bg">Поръчваш го в официалния сайт на компанията. Ако възникне въпрос,
           Васил Василев те придружава преди и след поръчката.</span></p>
           <div style="display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap">
-            <a class="btn btn-primary" href="https://www.immunotec.com/es-ES/saludtotaleuropa/products" target="_blank" rel="noopener"><span class="l-es" lang="es">Comprar Immunocal</span><span class="l-en" lang="en">Buy Immunocal</span><span class="l-bg" lang="bg">Поръчай Immunocal</span></a>
+            <a class="btn btn-secondary" href="https://www.immunotec.com/es-ES/saludtotaleuropa/products" target="_blank" rel="noopener"><span class="l-es" lang="es">Comprar Immunocal</span><span class="l-en" lang="en">Buy Immunocal</span><span class="l-bg" lang="bg">Поръчай Immunocal</span></a>
             <img src="immunocal-abierto.jpg" width="600" height="967" style="height:20rem;width:auto;border-radius:.75rem;border:1px solid var(--border)" alt="Sobrecito de Immunocal abierto sobre proteína en polvo" loading="lazy" decoding="async">
           </div>
         </div>
@@ -981,14 +978,20 @@
 
   <!-- ============ NUESTRA CIENCIA ============ -->
   <section>
-    <div class="container" style="text-align:center">
-      <p class="kicker"><span class="l-es" lang="es">La evidencia</span><span class="l-en" lang="en">The evidence</span><span class="l-bg" lang="bg">Доказателствата</span></p>
-      <h2 class="reveal"><span class="l-es" lang="es">Nuestra ciencia</span><span class="l-en" lang="en">Our science</span><span class="l-bg" lang="bg">Нашата наука</span></h2>
-      <p style="max-width:36rem;margin:0 auto"><span class="l-es" lang="es">Los estudios clínicos y la lista completa de patentes están disponibles en la página oficial de la compañía:</span><span class="l-en" lang="en">The clinical studies and the full patent list are available on the company's official page:</span><span class="l-bg" lang="bg">Клиничните проучвания и пълният списък с патенти са налични на официалната страница на компанията:</span></p>
-      <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-secondary l-es" lang="es" href="https://www.immunotec.com/es-ES/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">Ver estudios y patentes</a>
-        <a class="btn btn-secondary l-en" lang="en" href="https://www.immunotec.com/en-150/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">See studies and patents</a>
-        <a class="btn btn-secondary l-bg" lang="bg" href="https://www.immunotec.com/en-150/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">Виж проучванията и патентите</a>
+    <div class="container">
+      <div class="science-card" style="text-align:center">
+        <p class="kicker" style="margin-bottom:.35rem"><span class="l-es" lang="es">La evidencia</span><span class="l-en" lang="en">The evidence</span><span class="l-bg" lang="bg">Доказателствата</span></p>
+        <div class="science-title-row reveal">
+          <span class="science-rule" aria-hidden="true"></span>
+          <h2><span class="l-es" lang="es">Nuestra ciencia</span><span class="l-en" lang="en">Our science</span><span class="l-bg" lang="bg">Нашата наука</span></h2>
+          <span class="science-rule" aria-hidden="true"></span>
+        </div>
+        <p style="max-width:36rem;margin:0 auto .9rem"><span class="l-es" lang="es">Los estudios clínicos y la lista completa de patentes están disponibles en la página oficial de la compañía:</span><span class="l-en" lang="en">The clinical studies and the full patent list are available on the company's official page:</span><span class="l-bg" lang="bg">Клиничните проучвания и пълният списък с патенти са налични на официалната страница на компанията:</span></p>
+        <div class="cta-row" style="justify-content:center;margin-top:0">
+          <a class="btn btn-secondary l-es" lang="es" href="https://www.immunotec.com/es-ES/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">Ver estudios y patentes</a>
+          <a class="btn btn-secondary l-en" lang="en" href="https://www.immunotec.com/en-150/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">See studies and patents</a>
+          <a class="btn btn-secondary l-bg" lang="bg" href="https://www.immunotec.com/en-150/saludtotaleuropa/studies-and-standards" target="_blank" rel="noopener">Виж проучванията и патентите</a>
+        </div>
       </div>
     </div>
   </section>
